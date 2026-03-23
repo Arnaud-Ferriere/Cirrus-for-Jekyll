@@ -3,11 +3,11 @@
 # url and link_text are optional (e.g. for a language certification)
 
 - name: "English"
-  flag: "assets/great-britain.png"
+  flag: "assets/flag-en.png"
   level: "Native"
 
 - name: "French"
-  flag: "assets/france.png"
+  flag: "assets/flag-fr.png"
   level: "Fluent (C1)"
   url: "https://optional-certification-url.com"
   link_text: "View certification"

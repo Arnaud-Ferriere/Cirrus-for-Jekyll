@@ -18,7 +18,6 @@ Built with Bootstrap 5, Font Awesome 6, and full GitHub Pages compatibility.
 - **Print-friendly** — optimized CV layout for PDF export (always prints in light mode)
 - **Accessible** — keyboard navigation, ARIA labels, skip link, screen-reader support, reduced motion
 - **SEO** — Open Graph, Twitter Card, JSON-LD structured data, sitemap
-- **PWA-ready** — web app manifest for "Add to Home Screen" on mobile
 - **Customizable** — edit `custom.css` to change colors and fonts without touching the core stylesheet
 - **Modular SCSS** — clean architecture under `_sass/`, easy to extend
 
@@ -86,13 +85,9 @@ Edit the files in `_data/`:
 
 Replace `assets/photo.webp` with your own picture (recommended: square, ~300×300px).
 
-### 7. Add PWA icons (optional)
+### 7. Add flag images (optional)
 
-For "Add to Home Screen" support on mobile, add two PNG icons:
-- `assets/icon-192.png` (192×192px)
-- `assets/icon-512.png` (512×512px)
-
-These are referenced in `manifest.json`. Without them, the site works fine but won't be installable as a PWA.
+If you fill in `_data/languages.yml`, add a flag image for each language in `assets/`. The file path must match what you set in the `flag:` field (e.g. `assets/flag-en.png`).
 
 ---
 

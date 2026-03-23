@@ -104,54 +104,7 @@ layout: default
     {% endif %}
 </aside>
 
-<script>
-(function() {
-    var uiNoResults = {{ site.data.ui.home_no_results | jsonify }};
-    var posts = [
-        {% for post in site.posts %}
-        {
-            title: {{ post.title | jsonify }},
-            url: {{ post.url | relative_url | jsonify }},
-            date: "{{ post.date | date: '%d/%m/%Y' }}",
-            excerpt: {{ post.excerpt | strip_html | truncate: 150 | jsonify }},
-            tags: {{ post.tags | jsonify }},
-            content: {{ post.content | strip_html | jsonify }}
-        }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-    ];
-
-    var input = document.getElementById('home-search-input');
-    var results = document.getElementById('home-search-results');
-
-    input.addEventListener('input', function() {
-        var query = this.value.toLowerCase().trim();
-        if (query.length < 2) { results.innerHTML = ''; return; }
-
-        var found = posts.filter(function(p) {
-            return p.title.toLowerCase().includes(query) ||
-                   p.excerpt.toLowerCase().includes(query) ||
-                   p.content.toLowerCase().includes(query) ||
-                   p.tags.some(function(t) { return t.toLowerCase().includes(query); });
-        });
-
-        if (found.length === 0) {
-            results.innerHTML = '<p class="text-muted">' + uiNoResults + '</p>';
-            return;
-        }
-
-        var html = '<div class="row">';
-        found.forEach(function(p) {
-            html += '<div class="col-md-6 mb-3">' +
-                '<div class="card p-3 h-100" style="cursor:pointer;">' +
-                '<h5 class="card-title"><a href="' + p.url + '" class="stretched-link">' + p.title + '</a></h5>' +
-                '<p class="card-text text-muted">' + p.excerpt + '</p>' +
-                '<p class="text-muted small mb-0">' + p.date + '</p>' +
-                '</div></div>';
-        });
-        html += '</div>';
-        results.innerHTML = html;
-    });
-})();
-</script>
+<script>window.SiteSearch = { noResults: {{ site.data.ui.home_no_results | jsonify }}, searchUrl: {{ '/search.json' | relative_url | jsonify }} };</script>
+<script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>
 
 {{ content }}
