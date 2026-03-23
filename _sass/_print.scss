@@ -9,6 +9,18 @@
   /* === PAGE === */
   @page { size: A4; margin: 15mm 20mm; }
 
+  /* Force light mode variables regardless of [data-theme="dark"] */
+  :root,
+  [data-theme="dark"] {
+    --color-primary: #081a34 !important;
+    --color-secondary: #003b82 !important;
+    --color-background: #ffffff !important;
+    --color-card-bg: #ffffff !important;
+    --color-text: #222222 !important;
+    --color-text-muted: #666666 !important;
+    --color-border: #dee2e6 !important;
+  }
+
   /* === BASE === */
   *, *::before, *::after {
     -webkit-print-color-adjust: exact !important;

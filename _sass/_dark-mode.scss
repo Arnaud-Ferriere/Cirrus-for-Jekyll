@@ -69,9 +69,27 @@
     background-color: rgba(255, 255, 255, 0.04);
   }
 
-  /* Tag badges — use secondary (proper contrast with white) instead of primary */
+  /* Badges & buttons — outline style for dark mode (better contrast ~5:1) */
   .tag-badge {
+    background-color: transparent;
+    border: 1.5px solid var(--color-secondary);
+    color: var(--color-secondary) !important;
+  }
+
+  .tag-badge:hover {
     background-color: var(--color-secondary);
+    color: #fff !important;
+  }
+
+  .print-btn {
+    background-color: transparent;
+    border: 1.5px solid var(--color-secondary);
+    color: var(--color-secondary) !important;
+  }
+
+  .print-btn:hover {
+    background-color: var(--color-secondary);
+    color: #fff !important;
   }
 
   /* Articles view toggle buttons */
@@ -229,7 +247,25 @@
     }
 
     .tag-badge {
+      background-color: transparent;
+      border: 1.5px solid var(--color-secondary);
+      color: var(--color-secondary) !important;
+    }
+
+    .tag-badge:hover {
       background-color: var(--color-secondary);
+      color: #fff !important;
+    }
+
+    .print-btn {
+      background-color: transparent;
+      border: 1.5px solid var(--color-secondary);
+      color: var(--color-secondary) !important;
+    }
+
+    .print-btn:hover {
+      background-color: var(--color-secondary);
+      color: #fff !important;
     }
 
     .view-toggle-btn {

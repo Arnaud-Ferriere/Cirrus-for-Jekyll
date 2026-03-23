@@ -1,4 +1,4 @@
-# jekyll-cirrus
+# Cirrus for Jekyll
 
 A clean, minimal Jekyll template for a **CV + blog** site, designed to be deployed on **GitHub Pages in minutes** — no server, no build pipeline, no command line required.
 
