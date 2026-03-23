@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<!-- En-tête de bienvenue -->
+<!-- En-tete de bienvenue -->
 <header class="container mt-5 text-center">
     <h1 class="display-4">{{ site.home_title }}</h1>
     <p class="lead">{{ site.home_tagline }}</p>
@@ -11,7 +11,7 @@ layout: default
 <!-- Section Articles -->
 <section id="articles" class="container mt-5">
     <div class="section-header">
-        <h2 class="hover-underline-animation">Recent Articles</h2>
+        <h2 class="hover-underline-animation">{{ site.data.ui.home_recent }}</h2>
     </div>
     <div class="row">
         {% assign posts_list = paginator.posts | default: site.posts %}
@@ -29,7 +29,7 @@ layout: default
                         <a href="{{ post.url | relative_url }}" class="stretched-link text-decoration-none">{{ post.title }}</a>
                     </h5>
                     <p class="card-text">{{ post.excerpt | strip_html | truncate: 120 }}</p>
-                    <p class="text-muted small mb-0">Published: {{ post.date | date: "%m/%d/%Y" }} &nbsp;·&nbsp; <i class="fas fa-clock" aria-hidden="true"></i> {{ reading_time }} min</p>
+                    <p class="text-muted small mb-0">{{ site.data.ui.home_published }} {{ post.date | date: "%m/%d/%Y" }} &nbsp;·&nbsp; <i class="fas fa-clock" aria-hidden="true"></i> {{ reading_time }} {{ site.data.ui.home_min }}</p>
                 </div>
             </div>
         </div>
@@ -41,10 +41,10 @@ layout: default
         <ul class="pagination justify-content-center">
             {% if paginator.previous_page %}
             <li class="page-item">
-                <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">&laquo; Newer</a>
+                <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">&laquo; {{ site.data.ui.pagination_newer }}</a>
             </li>
             {% else %}
-            <li class="page-item disabled"><span class="page-link">&laquo; Newer</span></li>
+            <li class="page-item disabled"><span class="page-link">&laquo; {{ site.data.ui.pagination_newer }}</span></li>
             {% endif %}
 
             {% for i in (1..paginator.total_pages) %}
@@ -59,10 +59,10 @@ layout: default
 
             {% if paginator.next_page %}
             <li class="page-item">
-                <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">Older &raquo;</a>
+                <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">{{ site.data.ui.pagination_older }} &raquo;</a>
             </li>
             {% else %}
-            <li class="page-item disabled"><span class="page-link">Older &raquo;</span></li>
+            <li class="page-item disabled"><span class="page-link">{{ site.data.ui.pagination_older }} &raquo;</span></li>
             {% endif %}
         </ul>
     </nav>
@@ -71,19 +71,19 @@ layout: default
 
 {% if site.posts.size == 0 %}
 <section class="container mt-3 text-center">
-    <p class="text-muted">No articles yet. Check back soon!</p>
+    <p class="text-muted">{{ site.data.ui.home_no_articles }}</p>
 </section>
 {% endif %}
 
-<!-- Rechercher & Découvrir -->
+<!-- Rechercher & Decouvrir -->
 <aside class="container mt-5 mb-5">
     <div class="section-header mb-3">
-        <h3 class="hover-underline-animation">Search articles</h3>
+        <h3 class="hover-underline-animation">{{ site.data.ui.home_search }}</h3>
     </div>
 
-    <label for="home-search-input" class="visually-hidden">Search articles</label>
+    <label for="home-search-input" class="visually-hidden">{{ site.data.ui.home_search }}</label>
     <input type="text" id="home-search-input" class="form-control form-control-lg mb-3"
-        placeholder="Type your search...">
+        placeholder="{{ site.data.ui.home_search_placeholder }}">
     <div id="home-search-results"></div>
 
     {% if site.tags.size > 0 %}
@@ -106,6 +106,7 @@ layout: default
 
 <script>
 (function() {
+    var uiNoResults = {{ site.data.ui.home_no_results | jsonify }};
     var posts = [
         {% for post in site.posts %}
         {
@@ -134,7 +135,7 @@ layout: default
         });
 
         if (found.length === 0) {
-            results.innerHTML = '<p class="text-muted">No articles found.</p>';
+            results.innerHTML = '<p class="text-muted">' + uiNoResults + '</p>';
             return;
         }
 

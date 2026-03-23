@@ -13,10 +13,14 @@ Built with Bootstrap 5, Font Awesome 6, and full GitHub Pages compatibility.
 - **CV page** — skills, work experience, certifications, languages, interests
 - **Blog** — article cards with search, tag cloud, chronological & tag views, RSS feed, pagination
 - **Fully data-driven** — all personal content lives in `_data/` YAML files
-- **Print-friendly** — optimized CV layout for PDF export
-- **Accessible** — keyboard navigation, ARIA labels, skip link, screen-reader support
+- **Dark mode** — automatic (follows OS preference) with manual toggle, persists in localStorage
+- **Translatable** — all UI strings in `_data/ui.yml`, translate the entire site by editing one file
+- **Print-friendly** — optimized CV layout for PDF export (always prints in light mode)
+- **Accessible** — keyboard navigation, ARIA labels, skip link, screen-reader support, reduced motion
 - **SEO** — Open Graph, Twitter Card, JSON-LD structured data, sitemap
+- **PWA-ready** — web app manifest for "Add to Home Screen" on mobile
 - **Customizable** — edit `custom.css` to change colors and fonts without touching the core stylesheet
+- **Modular SCSS** — clean architecture under `_sass/`, easy to extend
 
 ---
 
@@ -47,6 +51,7 @@ home_tagline: "Discover my latest articles."
 url: "https://your-username.github.io"
 baseurl: "/your-repo"          # leave "" if the site is at the root domain
 description: "Your site description for SEO."
+lang: en                       # used for the HTML lang attribute
 ```
 
 ### 4. Fill in your personal info
@@ -81,6 +86,14 @@ Edit the files in `_data/`:
 
 Replace `assets/photo.webp` with your own picture (recommended: square, ~300×300px).
 
+### 7. Add PWA icons (optional)
+
+For "Add to Home Screen" support on mobile, add two PNG icons:
+- `assets/icon-192.png` (192×192px)
+- `assets/icon-512.png` (512×512px)
+
+These are referenced in `manifest.json`. Without them, the site works fine but won't be installable as a PWA.
+
 ---
 
 ## Writing articles
@@ -90,20 +103,6 @@ You can write articles with any tool you like:
 - **Directly on GitHub** — create a new file in `_posts/` via the GitHub web editor. The simplest option, no tools needed.
 - **Any text editor + git** — write markdown files locally and push with git.
 - **Obsidian** *(recommended)* — see the workflow below for a smooth writing experience.
-
-### Recommended workflow with Obsidian + Obsidian Git plugin
-
-> Write in Obsidian, publish with two clicks — no terminal needed.
-
-1. **Create a draft** — use the template at `Templates/Article Jekyll.md` (Templater plugin recommended). Save the note to the `_drafts/` folder. Jekyll won't publish it yet.
-
-2. **Write your article** in Obsidian. Add images to `assets/`.
-
-3. **When ready to publish** — rename the file to `YYYY-MM-DD-your-title.md` and move it to `_posts/`.
-
-4. **Push to GitHub** — open the Obsidian Git panel (left sidebar) → **Stage all** → **Commit** → **Push**.
-
-5. **Done** — GitHub Pages rebuilds your site automatically within ~1 minute.
 
 ### Article front matter reference
 
@@ -118,6 +117,59 @@ image: /assets/my-image.png       # card thumbnail + article header
 banner: /assets/my-banner.jpg     # full-width header (overrides image)
 # placeholder: true               # uncomment to show an "AI-generated" disclaimer
 ---
+```
+
+### Images in the body
+
+```markdown
+![Description](/assets/image-name.png)                  ← centered (default)
+![Description](/assets/image-name.png){: .img-left}     ← float left
+![Description](/assets/image-name.png){: .img-right}    ← float right
+![Description](/assets/image-name.png){: .img-full}     ← full width
+```
+
+### Recommended workflow with Obsidian + Obsidian Git plugin
+
+> Write in Obsidian, publish with two clicks — no terminal needed.
+
+1. **Create a draft** — save a new note to the `_drafts/` folder. Jekyll won't publish it yet.
+
+2. **Write your article** in Obsidian. Add images to `assets/`.
+
+3. **When ready to publish** — rename the file to `YYYY-MM-DD-your-title.md` and move it to `_posts/`.
+
+4. **Push to GitHub** — open the Obsidian Git panel (left sidebar) → **Stage all** → **Commit** → **Push**.
+
+5. **Done** — GitHub Pages rebuilds your site automatically within ~1 minute.
+
+---
+
+## Translate the UI
+
+All user-facing strings are in **`_data/ui.yml`**. To translate the site to another language:
+
+1. Set `lang: fr` (or your language code) in `_config.yml`
+2. Edit `_data/ui.yml` and translate each value
+
+No template files need to be changed.
+
+---
+
+## Dark mode
+
+Dark mode works out of the box:
+- **Automatic** — follows the OS/browser `prefers-color-scheme` setting
+- **Manual toggle** — moon/sun icon in the navbar, persisted in `localStorage`
+- **Print** — always uses the light theme
+
+To customize dark mode colors, add overrides in `custom.css`:
+
+```css
+[data-theme="dark"] {
+  --color-background: #your-dark-bg;
+  --color-card-bg: #your-dark-card-bg;
+  --color-text: #your-light-text;
+}
 ```
 
 ---
@@ -147,6 +199,25 @@ The wave is only rendered if the file exists: delete `assets/clouds-footer.svg` 
 
 To **replace** the wave shape: swap `assets/clouds-footer.svg` with any SVG you like — it will stretch to full width automatically.
 
+### SCSS architecture
+
+The stylesheet is split into modular partials under `_sass/`:
+
+| File | Content |
+|---|---|
+| `_variables.scss` | CSS custom properties (`:root`) |
+| `_base.scss` | html, body, headings, containers |
+| `_navbar.scss` | Navigation bar and hover animation |
+| `_cards.scss` | Cards, stacked cards, certifications |
+| `_tags.scss` | Tag cloud, tag badges, articles view |
+| `_articles.scss` | Article layout, images, blockquotes |
+| `_experience.scss` | CV sections, missions, interests |
+| `_dark-mode.scss` | Dark theme overrides |
+| `_print.scss` | Print-optimized styles |
+| *...and more* | Buttons, grid, footer, code, TOC, etc. |
+
+The entry point is `assets/css/main.scss`. Jekyll compiles it automatically — no build tools needed.
+
 ---
 
 ## Local development
@@ -168,6 +239,6 @@ Requires Ruby and Bundler. The `Gemfile` uses `github-pages` for full GitHub Pag
 
 ---
 
-If this template saved you some time, a coffee is always appreciated! ☕
+If this template saved you some time, a coffee is always appreciated!
 
 [![Ko-fi](https://img.shields.io/badge/Support%20on-Ko--fi-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/surlesnuages)

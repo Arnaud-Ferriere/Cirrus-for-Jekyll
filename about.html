@@ -19,7 +19,7 @@ permalink: /about/
                     alt="{{ site.data.author.photo_alt }}">
             </div>
             <div class="col-md-9">
-                <h1>Who am I?</h1>
+                <h1>{{ site.data.ui.about_who }}</h1>
                 <p>{{ site.data.author.bio }}</p>
                 <h5>{{ site.data.author.sign_off }}</h5>
             </div>
@@ -29,11 +29,11 @@ permalink: /about/
     <!--CERTIFICATIONS-->
     <div id="certifications" class="container mt-5">
         <div class="section-header">
-            <button class="toggle-section-btn btn btn-link" aria-label="Toggle Certifications section"
+            <button class="toggle-section-btn btn btn-link" aria-label="Toggle {{ site.data.ui.about_certifications }} section"
                 aria-expanded="true">
                 <i class="fas fa-chevron-up"></i>
             </button>
-            <h2 class="hover-underline-animation">Certifications</h2>
+            <h2 class="hover-underline-animation">{{ site.data.ui.about_certifications }}</h2>
         </div>
         <div class="section-content">
             <div class="certifications-grid">
@@ -46,7 +46,7 @@ permalink: /about/
                         <h4>{{ cert.name }}</h4>
                         <h6>{{ cert.date }}</h6>
                         <a href="{{ cert.url }}"
-                            target="_blank" rel="noopener noreferrer" class="cert-link">View certification <i
+                            target="_blank" rel="noopener noreferrer" class="cert-link">{{ site.data.ui.about_view_cert }} <i
                                 class="fa-solid fa-square-up-right" aria-hidden="true"></i>
                             <span class="sr-only">(opens the certification page for {{ cert.name }})</span></a>
                     </div>
@@ -59,19 +59,19 @@ permalink: /about/
     <!--SKILLS-->
     <div id="skills" class="container mt-5">
         <div class="section-header">
-            <button class="toggle-section-btn btn btn-link" aria-label="Toggle Skills section" aria-expanded="true">
+            <button class="toggle-section-btn btn btn-link" aria-label="Toggle {{ site.data.ui.about_skills }} section" aria-expanded="true">
                 <i class="fas fa-chevron-up"></i>
             </button>
-            <h2 class="hover-underline-animation">Technical Skills</h2>
+            <h2 class="hover-underline-animation">{{ site.data.ui.about_skills }}</h2>
         </div>
         <div class="section-content stacked-cards">
             <div class="stacked-card">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col" tabindex="0" role="button" id="comp-header">Skill <i
+                            <th scope="col" tabindex="0" role="button" id="comp-header">{{ site.data.ui.about_skill_col }} <i
                                     class="sort-arrow fas fa-chevron-up" aria-hidden="true"></i></th>
-                            <th scope="col" tabindex="0" role="button" id="niveau-header">Level <i
+                            <th scope="col" tabindex="0" role="button" id="niveau-header">{{ site.data.ui.about_level_col }} <i
                                     class="sort-arrow fas fa-chevron-up" aria-hidden="true"></i></th>
                         </tr>
                     </thead>
@@ -91,11 +91,11 @@ permalink: /about/
     <!--EXPERIENCES CARDS-->
     <div id="stacked-experiences" class="container mt-5">
         <div class="section-header">
-            <button class="toggle-section-btn btn btn-link" aria-label="Toggle Stacked Experiences section"
+            <button class="toggle-section-btn btn btn-link" aria-label="Toggle {{ site.data.ui.about_experience }} section"
                 aria-expanded="true">
                 <i class="fas fa-chevron-up"></i>
             </button>
-            <h2 class="hover-underline-animation">Professional Experience</h2>
+            <h2 class="hover-underline-animation">{{ site.data.ui.about_experience }}</h2>
         </div>
         <div class="section-content stacked-cards">
             {% for exp in site.data.experiences %}
@@ -115,7 +115,7 @@ permalink: /about/
 
                 <!-- Section Missions -->
                 <div class="missions-section">
-                    <h5 class="missions-title">Missions:</h5>
+                    <h5 class="missions-title">{{ site.data.ui.about_missions }}</h5>
                     {% for mission in exp.missions %}
                     <div class="mission">
                         <div class="mission-header">
@@ -125,11 +125,11 @@ permalink: /about/
 
                         <div class="mission-description">
                             <p>
-                                <strong>Project / Service Context:</strong>
+                                <strong>{{ site.data.ui.about_context }}</strong>
                                 {{ mission.context }}
                             </p>
 
-                            <p><br /><strong>Responsibilities / Missions:</strong></p>
+                            <p><br /><strong>{{ site.data.ui.about_responsibilities }}</strong></p>
 
                             <ul>
                                 {% for resp in mission.responsibilities %}
@@ -145,7 +145,7 @@ permalink: /about/
                             </ul>
 
                             <p><br />
-                                <strong>Technical Environment / Main Technologies Used:</strong>
+                                <strong>{{ site.data.ui.about_tech }}</strong>
                                 {{ mission.tech }}
                             </p>
                         </div>
@@ -157,11 +157,11 @@ permalink: /about/
                 {% if exp.context %}
                 <div class="mission-description">
                     <p>
-                        <strong>Project / Service Context:</strong>
+                        <strong>{{ site.data.ui.about_context }}</strong>
                         {{ exp.context }}
                     </p>
 
-                    <p><br /><strong>Responsibilities / Missions:</strong></p>
+                    <p><br /><strong>{{ site.data.ui.about_responsibilities }}</strong></p>
 
                     <ul>
                         {% for resp in exp.responsibilities %}
@@ -177,7 +177,7 @@ permalink: /about/
                     </ul>
 
                     <p><br />
-                        <strong>Technical Environment / Main Technologies Used:</strong>
+                        <strong>{{ site.data.ui.about_tech }}</strong>
                         {{ exp.tech }}
                     </p>
                 </div>
@@ -185,7 +185,7 @@ permalink: /about/
 
                 {% if exp.key_skills %}
                 <div class="mission-description">
-                    <p><br /><strong>Key Skills:</strong></p>
+                    <p><br /><strong>{{ site.data.ui.about_key_skills }}</strong></p>
                     <ul>
                         {% for skill in exp.key_skills %}
                         <li>{{ skill }}</li>
@@ -201,10 +201,10 @@ permalink: /about/
 
     <div id="applied-skills" class="container mt-5">
         <div class="section-header">
-            <button class="toggle-section-btn btn btn-link" aria-label="Toggle Formations section" aria-expanded="true">
+            <button class="toggle-section-btn btn btn-link" aria-label="Toggle {{ site.data.ui.about_applied_skills }} section" aria-expanded="true">
                 <i class="fas fa-chevron-up"></i>
             </button>
-            <h2 class="hover-underline-animation">Applied Skills</h2>
+            <h2 class="hover-underline-animation">{{ site.data.ui.about_applied_skills }}</h2>
         </div>
         <div class="section-content">
             <div class="applied-skills-grid">
@@ -216,7 +216,7 @@ permalink: /about/
                     <div class="card-body">
                         <h4>{{ skill.name }}</h4>
                         <a href="{{ skill.url }}"
-                            target="_blank" rel="noopener noreferrer" class="cert-link">View certification <i
+                            target="_blank" rel="noopener noreferrer" class="cert-link">{{ site.data.ui.about_view_cert }} <i
                                 class="fa-solid fa-square-up-right" aria-hidden="true"></i>
                             <span class="sr-only">(opens the certification page)</span></a>
                     </div>
@@ -229,10 +229,10 @@ permalink: /about/
 
     <div id="education" class="container mt-5">
         <div class="section-header">
-            <button class="toggle-section-btn btn btn-link" aria-label="Toggle Formations section" aria-expanded="true">
+            <button class="toggle-section-btn btn btn-link" aria-label="Toggle {{ site.data.ui.about_education }} section" aria-expanded="true">
                 <i class="fas fa-chevron-up"></i>
             </button>
-            <h2 class="hover-underline-animation">Education</h2>
+            <h2 class="hover-underline-animation">{{ site.data.ui.about_education }}</h2>
         </div>
         <div class="section-content stacked-cards">
             <div class="stacked-card">
@@ -254,10 +254,10 @@ permalink: /about/
 
     <div id="langues" class="container mt-5">
         <div class="section-header">
-            <button class="toggle-section-btn btn btn-link" aria-label="Toggle Languages section" aria-expanded="true">
+            <button class="toggle-section-btn btn btn-link" aria-label="Toggle {{ site.data.ui.about_languages }} section" aria-expanded="true">
                 <i class="fas fa-chevron-up"></i>
             </button>
-            <h2 class="hover-underline-animation">Languages</h2>
+            <h2 class="hover-underline-animation">{{ site.data.ui.about_languages }}</h2>
         </div>
         <div class="section-content stacked-cards">
             <div class="stacked-card">
@@ -277,11 +277,11 @@ permalink: /about/
 
     <div id="interets" class="container mt-5">
         <div class="section-header">
-            <button class="toggle-section-btn btn btn-link" aria-label="Toggle Interests section"
+            <button class="toggle-section-btn btn btn-link" aria-label="Toggle {{ site.data.ui.about_interests }} section"
                 aria-expanded="true">
                 <i class="fas fa-chevron-up"></i>
             </button>
-            <h2 class="hover-underline-animation">Interests</h2>
+            <h2 class="hover-underline-animation">{{ site.data.ui.about_interests }}</h2>
         </div>
         <div class="section-content stacked-cards">
             <div class="stacked-card">
@@ -303,7 +303,7 @@ permalink: /about/
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content position-relative">
                 <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title sr-only" id="imageModalLabel">Interest image</h5>
+                    <h5 class="modal-title sr-only" id="imageModalLabel">{{ site.data.ui.about_interest_image }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">

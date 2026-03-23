@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
-        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="{{ site.data.ui.a11y_toggle_nav }}">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -9,17 +9,17 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link hover-underline-animation" href="{{ '/' | relative_url }}">Home</a>
+                <a class="nav-link hover-underline-animation" href="{{ '/' | relative_url }}">{{ site.data.ui.nav_home }}</a>
             </li>
         </ul>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link hover-underline-animation" href="{{ '/articles/' | relative_url }}">Articles</a>
+                <a class="nav-link hover-underline-animation" href="{{ '/articles/' | relative_url }}">{{ site.data.ui.nav_articles }}</a>
             </li>
         </ul>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link hover-underline-animation" href="{{ '/about/' | relative_url }}">About</a>
+                <a class="nav-link hover-underline-animation" href="{{ '/about/' | relative_url }}">{{ site.data.ui.nav_about }}</a>
             </li>
         </ul>
         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
@@ -45,6 +45,12 @@
                 <a class="nav-link" href="{{ '/feed.xml' | relative_url }}" title="RSS Feed" rel="noopener noreferrer">
                     <i class="fas fa-rss"></i><span class="sr-only">(blog RSS feed)</span>
                 </a>
+            </li>
+            <li class="nav-item">
+                <button id="theme-toggle" class="nav-link"
+                        title="{{ site.data.ui.a11y_toggle_dark }}" aria-label="{{ site.data.ui.a11y_toggle_dark }}">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
             </li>
         </ul>
     </div>

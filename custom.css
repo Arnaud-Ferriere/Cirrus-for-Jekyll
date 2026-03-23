@@ -53,6 +53,18 @@
 }
 
 
+/* ── DARK MODE OVERRIDES ──────────────────────────────────────
+   Dark mode is automatic (follows OS preference) with a manual toggle.
+   To customize dark mode colors, override variables inside [data-theme="dark"]:
+
+   [data-theme="dark"] {
+     --color-background: #your-dark-bg;
+     --color-card-bg: #your-dark-card-bg;
+     --color-text: #your-light-text;
+   }
+   ───────────────────────────────────────────────────────────── */
+
+
 /* ─────────────────────────────────────────────────────────────
    Add your own custom styles below this line.
    Example: change the footer font size, tweak card padding, etc.
