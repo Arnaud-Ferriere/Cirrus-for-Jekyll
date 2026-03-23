@@ -139,6 +139,10 @@ Available variables:
 
 To use a different Google Font, update `--font-main` and add the corresponding `<link>` in `_layouts/default.html`.
 
+### Footer wave
+
+The footer wave is an SVG file at `assets/clouds-footer.svg`. You can replace it with any SVG you like, or delete it and remove the `<img class="footer-wave">` line in `_includes/footer.html` to have a plain footer.
+
 ---
 
 ## Local development
