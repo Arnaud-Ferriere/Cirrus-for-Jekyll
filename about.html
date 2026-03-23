@@ -227,7 +227,7 @@ permalink: /about/
 
     </div>
 
-    <div id="formations" class="container mt-5">
+    <div id="education" class="container mt-5">
         <div class="section-header">
             <button class="toggle-section-btn btn btn-link" aria-label="Toggle Formations section" aria-expanded="true">
                 <i class="fas fa-chevron-up"></i>
@@ -238,7 +238,7 @@ permalink: /about/
             <div class="stacked-card">
                 <div class="stacked-card-body">
                     <ul>
-                        {% for f in site.data.formations %}
+                        {% for f in site.data.education %}
                         <li><strong>{{ f.year }} :</strong> {{ f.name }}{% if f.url %} - <a
                                 href="{{ f.url }}"
                                 target="_blank" rel="noopener noreferrer" class="cert-link">{{ f.link_text }} <i

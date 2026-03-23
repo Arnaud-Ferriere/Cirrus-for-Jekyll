@@ -6,6 +6,8 @@ All personal content is configured through YAML files — no template editing ne
 
 Built with Bootstrap 5, Font Awesome 6, and full GitHub Pages compatibility.
 
+**Live demo:** [surlesnuages.fr](https://surlesnuages.fr)
+
 ## Features
 
 - **CV page** — skills, work experience, certifications, languages, interests
@@ -72,7 +74,7 @@ Edit the files in `_data/`:
 | `experiences.yml` | Work experience (with or without sub-missions) |
 | `certifications.yml` | Professional certifications + badge images |
 | `applied_skills.yml` | Micro-certifications / applied skills |
-| `formations.yml` | Education & training |
+| `education.yml` | Education & training |
 | `languages.yml` | Language skills |
 
 ### 6. Add your profile photo
@@ -83,11 +85,17 @@ Replace `assets/photo.webp` with your own picture (recommended: square, ~300×30
 
 ## Writing articles
 
-### Workflow with Obsidian + Obsidian Git plugin
+You can write articles with any tool you like:
+
+- **Directly on GitHub** — create a new file in `_posts/` via the GitHub web editor. The simplest option, no tools needed.
+- **Any text editor + git** — write markdown files locally and push with git.
+- **Obsidian** *(recommended)* — see the workflow below for a smooth writing experience.
+
+### Recommended workflow with Obsidian + Obsidian Git plugin
 
 > Write in Obsidian, publish with two clicks — no terminal needed.
 
-1. **Create a draft** — use the template at `Templates/Article Jekyll.md` (Templater plugin recommended). Save the note to the `_drafts/` folder of this repo. Jekyll won't publish it yet.
+1. **Create a draft** — use the template at `Templates/Article Jekyll.md` (Templater plugin recommended). Save the note to the `_drafts/` folder. Jekyll won't publish it yet.
 
 2. **Write your article** in Obsidian. Add images to `assets/`.
 
@@ -107,8 +115,8 @@ date: 2025-01-15
 excerpt: "Short summary shown on cards and in search."
 tags: [Azure, PowerShell]
 image: /assets/my-image.png       # card thumbnail + article header
-banner: /assets/my-banner.jpg    # full-width header (overrides image)
-placeholder: true                 # shows an "AI-generated" disclaimer banner
+banner: /assets/my-banner.jpg     # full-width header (overrides image)
+# placeholder: true               # uncomment to show an "AI-generated" disclaimer
 ---
 ```
 
@@ -116,20 +124,20 @@ placeholder: true                 # shows an "AI-generated" disclaimer banner
 
 ## Customize the look
 
-Edit **`custom.css`** at the root of the repo — this is the only file you need to touch for visual changes. It is loaded after the main stylesheet so your values always win.
+Edit **`custom.css`** at the root of the repo — all CSS variables are listed with comments, just uncomment the ones you want to change. This file is loaded after the main stylesheet so your values always win.
 
-```css
-:root {
-    --color-primary:    #081a34;   /* navbar, headings, buttons */
-    --color-secondary:  #003b82;   /* links, borders, highlights */
-    --color-background: #eef2f3;   /* page background */
-    --color-card-bg:    #ffffff;   /* card / section background */
-    --font-main: 'Poppins', sans-serif;
-    --border-radius: 15px;
-}
-```
+Available variables:
 
-Uncomment and change any value. To use a different Google Font, update `--font-main` and add the corresponding `<link>` in `_layouts/default.html`.
+| Variable | Default | Description |
+|---|---|---|
+| `--color-primary` | `#081a34` | Navbar, headings, buttons |
+| `--color-secondary` | `#003b82` | Links, borders, highlights |
+| `--color-background` | `#eef2f3` | Page background |
+| `--color-card-bg` | `#ffffff` | Card / section background |
+| `--font-main` | `'Poppins', sans-serif` | Main font |
+| `--border-radius` | `15px` | Card / button corner radius |
+
+To use a different Google Font, update `--font-main` and add the corresponding `<link>` in `_layouts/default.html`.
 
 ---
 
