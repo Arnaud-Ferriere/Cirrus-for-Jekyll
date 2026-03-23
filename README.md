@@ -1,5 +1,9 @@
 # jekyll-cirrus
 
+[![Ko-fi](https://img.shields.io/badge/Support%20on-Ko--fi-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/surlesnuages)
+
+If this template saves you some time, a coffee is always appreciated! ☕
+
 A clean, minimal Jekyll template for a **CV + blog** site, designed to be deployed on **GitHub Pages in minutes** — no server, no build pipeline, no command line required.
 
 All personal content is configured through YAML files — no template editing needed.
