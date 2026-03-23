@@ -15,7 +15,7 @@ permalink: /about/
     <div id="description" class="container mt-5">
         <div class="row">
             <div class="col-md-3">
-                <img src="{{ site.data.author.photo }}" class="img-thumbnail rounded" width="300" height="300" fetchpriority="high"
+                <img src="{{ site.data.author.photo | relative_url }}" class="img-thumbnail rounded" width="300" height="300" fetchpriority="high"
                     alt="{{ site.data.author.photo_alt }}">
             </div>
             <div class="col-md-9">
@@ -40,7 +40,7 @@ permalink: /about/
                 {% for cert in site.data.certifications %}
                 <div class="card">
                     <div class="card-icon">
-                        <img src="{{ cert.badge }}" alt="{{ cert.name }} badge" width="80" height="80" loading="lazy">
+                        <img src="{{ cert.badge | relative_url }}" alt="{{ cert.name }} badge" width="80" height="80" loading="lazy">
                     </div>
                     <div class="card-body">
                         <h4>{{ cert.name }}</h4>
@@ -103,7 +103,7 @@ permalink: /about/
                 <!-- Section du poste -->
                 <div class="poste-section">
                     <div class="poste-header">
-                        <img src="{{ exp.logo }}" alt="Logo {{ exp.company }}" class="poste-logo" width="80" height="80" loading="lazy">
+                        <img src="{{ exp.logo | relative_url }}" alt="Logo {{ exp.company }}" class="poste-logo" width="80" height="80" loading="lazy">
                         <h4 class="poste-title"><strong>{{ exp.period }} : </strong> {{ exp.title }}</h4>
                     </div>
                     <p class="poste-description">{{ exp.description }}</p>
@@ -119,7 +119,7 @@ permalink: /about/
                     {% for mission in exp.missions %}
                     <div class="mission">
                         <div class="mission-header">
-                            <img src="{{ mission.logo }}" alt="Logo {{ mission.client }}" class="mission-logo" width="80" height="80" loading="lazy">
+                            <img src="{{ mission.logo | relative_url }}" alt="Logo {{ mission.client }}" class="mission-logo" width="80" height="80" loading="lazy">
                             <h5 class="mission-title"><strong>{{ mission.period }} : </strong> {{ mission.client }}</h5>
                         </div>
 
@@ -211,7 +211,7 @@ permalink: /about/
                 {% for skill in site.data.applied_skills %}
                 <div class="card">
                     <div class="card-icon">
-                        <img src="assets/applied-skill.svg" alt="{{ skill.name }} badge" width="80" height="80" loading="lazy">
+                        <img src="{{ '/assets/applied-skill.svg' | relative_url }}" alt="{{ skill.name }} badge" width="80" height="80" loading="lazy">
                     </div>
                     <div class="card-body">
                         <h4>{{ skill.name }}</h4>
@@ -263,7 +263,7 @@ permalink: /about/
             <div class="stacked-card">
                 <div class="stacked-card-body">
                     {% for lang in site.data.languages %}
-                    <img width="48" height="48" src="{{ lang.flag }}" alt="{{ lang.name }}" />
+                    <img width="48" height="48" src="{{ lang.flag | relative_url }}" alt="{{ lang.name }}" />
                     <strong>{{ lang.name }} :</strong> {{ lang.level }}{% if lang.url %} - <a
                         href="{{ lang.url }}"
                         target="_blank" rel="noopener noreferrer" class="cert-link">{{ lang.link_text }} <i
