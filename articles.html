@@ -86,6 +86,18 @@ permalink: /articles/
     const viewChrono = document.getElementById('view-chrono');
     const viewTags = document.getElementById('view-tags');
 
+    function getNavbarHeight() {
+        var navbar = document.querySelector('.navbar');
+        return navbar ? navbar.offsetHeight : 0;
+    }
+
+    function scrollToAnchor(id) {
+        var target = document.getElementById(id);
+        if (!target) return;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - getNavbarHeight() - 16;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+
     btnChrono.addEventListener('click', function () {
         viewChrono.style.display = '';
         viewTags.style.display = 'none';
@@ -108,9 +120,26 @@ permalink: /articles/
     function switchToTagsView(event, anchor) {
         event.preventDefault();
         btnTags.click();
-        setTimeout(function () {
-            var target = document.getElementById(anchor);
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
-        }, 50);
+        setTimeout(function () { scrollToAnchor(anchor); }, 50);
     }
+
+    // Intercept native anchor clicks in the tags view to apply navbar offset
+    document.getElementById('view-tags').addEventListener('click', function (e) {
+        var link = e.target.closest('a[href^="#"]');
+        if (!link) return;
+        e.preventDefault();
+        var id = link.getAttribute('href').slice(1);
+        scrollToAnchor(id);
+    });
+
+    // On page load: if a hash is present, activate tags view and scroll correctly
+    (function () {
+        var hash = window.location.hash;
+        if (!hash) return;
+        var id = hash.slice(1);
+        var target = document.getElementById(id);
+        if (!target) return;
+        btnTags.click();
+        setTimeout(function () { scrollToAnchor(id); }, 50);
+    })();
 </script>
