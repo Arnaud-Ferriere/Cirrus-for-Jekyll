@@ -1,10 +1,10 @@
 ---
 layout: default
-title: À propos
-permalink: /apropos.html
+title: About
+permalink: /about/
 ---
 
-    <!-- En-tête visible uniquement à l'impression -->
+    <!-- Print-only header -->
     <div class="print-header">
         <h1>{{ site.data.author.name }}</h1>
         <p class="print-subtitle">{{ site.data.author.role }}</p>
@@ -19,7 +19,7 @@ permalink: /apropos.html
                     alt="{{ site.data.author.photo_alt }}">
             </div>
             <div class="col-md-9">
-                <h1>Qui suis-je ?</h1>
+                <h1>Who am I?</h1>
                 <p>{{ site.data.author.bio }}</p>
                 <h5>{{ site.data.author.sign_off }}</h5>
             </div>
@@ -46,9 +46,9 @@ permalink: /apropos.html
                         <h4>{{ cert.name }}</h4>
                         <h6>{{ cert.date }}</h6>
                         <a href="{{ cert.url }}"
-                            target="_blank" rel="noopener noreferrer" class="cert-link">Voir la certification <i
+                            target="_blank" rel="noopener noreferrer" class="cert-link">View certification <i
                                 class="fa-solid fa-square-up-right" aria-hidden="true"></i>
-                            <span class="sr-only">(ouvre la page de la certification {{ cert.name }})</span></a>
+                            <span class="sr-only">(opens the certification page for {{ cert.name }})</span></a>
                     </div>
                 </div>
                 {% endfor %}
@@ -62,16 +62,16 @@ permalink: /apropos.html
             <button class="toggle-section-btn btn btn-link" aria-label="Toggle Skills section" aria-expanded="true">
                 <i class="fas fa-chevron-up"></i>
             </button>
-            <h2 class="hover-underline-animation">Compétences techniques</h2>
+            <h2 class="hover-underline-animation">Technical Skills</h2>
         </div>
         <div class="section-content stacked-cards">
             <div class="stacked-card">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col" tabindex="0" role="button" id="comp-header">Compétence <i
+                            <th scope="col" tabindex="0" role="button" id="comp-header">Skill <i
                                     class="sort-arrow fas fa-chevron-up" aria-hidden="true"></i></th>
-                            <th scope="col" tabindex="0" role="button" id="niveau-header">Niveau <i
+                            <th scope="col" tabindex="0" role="button" id="niveau-header">Level <i
                                     class="sort-arrow fas fa-chevron-up" aria-hidden="true"></i></th>
                         </tr>
                     </thead>
@@ -91,11 +91,11 @@ permalink: /apropos.html
     <!--EXPERIENCES CARDS-->
     <div id="stacked-experiences" class="container mt-5">
         <div class="section-header">
-            <button class="toggle-section-btn btn btn-link" aria-label="Toggle Stacked Expériences section"
+            <button class="toggle-section-btn btn btn-link" aria-label="Toggle Stacked Experiences section"
                 aria-expanded="true">
                 <i class="fas fa-chevron-up"></i>
             </button>
-            <h2 class="hover-underline-animation">Expériences professionnelles</h2>
+            <h2 class="hover-underline-animation">Professional Experience</h2>
         </div>
         <div class="section-content stacked-cards">
             {% for exp in site.data.experiences %}
@@ -110,12 +110,12 @@ permalink: /apropos.html
                 </div>
 
                 {% if exp.missions %}
-                <!-- Séparateur -->
+                <!-- Separator -->
                 <hr class="section-separator">
 
                 <!-- Section Missions -->
                 <div class="missions-section">
-                    <h5 class="missions-title">Missions :</h5>
+                    <h5 class="missions-title">Missions:</h5>
                     {% for mission in exp.missions %}
                     <div class="mission">
                         <div class="mission-header">
@@ -125,11 +125,11 @@ permalink: /apropos.html
 
                         <div class="mission-description">
                             <p>
-                                <strong>Contexte Projet / Service :</strong>
+                                <strong>Project / Service Context:</strong>
                                 {{ mission.context }}
                             </p>
 
-                            <p><br /><strong>Responsabilités / Missions :</strong></p>
+                            <p><br /><strong>Responsibilities / Missions:</strong></p>
 
                             <ul>
                                 {% for resp in mission.responsibilities %}
@@ -145,7 +145,7 @@ permalink: /apropos.html
                             </ul>
 
                             <p><br />
-                                <strong>Environnement technique / Technologies principales utilisées :</strong>
+                                <strong>Technical Environment / Main Technologies Used:</strong>
                                 {{ mission.tech }}
                             </p>
                         </div>
@@ -157,11 +157,11 @@ permalink: /apropos.html
                 {% if exp.context %}
                 <div class="mission-description">
                     <p>
-                        <strong>Contexte Projet / Service :</strong>
+                        <strong>Project / Service Context:</strong>
                         {{ exp.context }}
                     </p>
 
-                    <p><br /><strong>Responsabilités / Missions :</strong></p>
+                    <p><br /><strong>Responsibilities / Missions:</strong></p>
 
                     <ul>
                         {% for resp in exp.responsibilities %}
@@ -177,7 +177,7 @@ permalink: /apropos.html
                     </ul>
 
                     <p><br />
-                        <strong>Environnement technique / Technologies principales utilisées :</strong>
+                        <strong>Technical Environment / Main Technologies Used:</strong>
                         {{ exp.tech }}
                     </p>
                 </div>
@@ -185,7 +185,7 @@ permalink: /apropos.html
 
                 {% if exp.key_skills %}
                 <div class="mission-description">
-                    <p><br /><strong>Compétences clés :</strong></p>
+                    <p><br /><strong>Key Skills:</strong></p>
                     <ul>
                         {% for skill in exp.key_skills %}
                         <li>{{ skill }}</li>
@@ -204,7 +204,7 @@ permalink: /apropos.html
             <button class="toggle-section-btn btn btn-link" aria-label="Toggle Formations section" aria-expanded="true">
                 <i class="fas fa-chevron-up"></i>
             </button>
-            <h2 class="hover-underline-animation">Compétences Appliquées</h2>
+            <h2 class="hover-underline-animation">Applied Skills</h2>
         </div>
         <div class="section-content">
             <div class="applied-skills-grid">
@@ -216,9 +216,9 @@ permalink: /apropos.html
                     <div class="card-body">
                         <h4>{{ skill.name }}</h4>
                         <a href="{{ skill.url }}"
-                            target="_blank" rel="noopener noreferrer" class="cert-link">Voir la certification <i
+                            target="_blank" rel="noopener noreferrer" class="cert-link">View certification <i
                                 class="fa-solid fa-square-up-right" aria-hidden="true"></i>
-                            <span class="sr-only">(ouvre la page de la certification)</span></a>
+                            <span class="sr-only">(opens the certification page)</span></a>
                     </div>
                 </div>
                 {% endfor %}
@@ -232,7 +232,7 @@ permalink: /apropos.html
             <button class="toggle-section-btn btn btn-link" aria-label="Toggle Formations section" aria-expanded="true">
                 <i class="fas fa-chevron-up"></i>
             </button>
-            <h2 class="hover-underline-animation">Formations</h2>
+            <h2 class="hover-underline-animation">Education</h2>
         </div>
         <div class="section-content stacked-cards">
             <div class="stacked-card">
@@ -254,10 +254,10 @@ permalink: /apropos.html
 
     <div id="langues" class="container mt-5">
         <div class="section-header">
-            <button class="toggle-section-btn btn btn-link" aria-label="Toggle Langues section" aria-expanded="true">
+            <button class="toggle-section-btn btn btn-link" aria-label="Toggle Languages section" aria-expanded="true">
                 <i class="fas fa-chevron-up"></i>
             </button>
-            <h2 class="hover-underline-animation">Langues</h2>
+            <h2 class="hover-underline-animation">Languages</h2>
         </div>
         <div class="section-content stacked-cards">
             <div class="stacked-card">
@@ -277,11 +277,11 @@ permalink: /apropos.html
 
     <div id="interets" class="container mt-5">
         <div class="section-header">
-            <button class="toggle-section-btn btn btn-link" aria-label="Toggle Centres d'intérêt section"
+            <button class="toggle-section-btn btn btn-link" aria-label="Toggle Interests section"
                 aria-expanded="true">
                 <i class="fas fa-chevron-up"></i>
             </button>
-            <h2 class="hover-underline-animation">Centres d'Intérêt</h2>
+            <h2 class="hover-underline-animation">Interests</h2>
         </div>
         <div class="section-content stacked-cards">
             <div class="stacked-card">
@@ -298,13 +298,13 @@ permalink: /apropos.html
         </div>
     </div>
 
-    <!-- Modal Bootstrap pour afficher les images des intérêts en grand -->
+    <!-- Bootstrap modal to display interest images full size -->
     <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content position-relative">
                 <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title sr-only" id="imageModalLabel">Image du centre d'intérêt</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                    <h5 class="modal-title sr-only" id="imageModalLabel">Interest image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
                     <img id="modalImage" src="" alt="" class="img-fluid">
@@ -330,10 +330,10 @@ permalink: /apropos.html
                         button.innerHTML = '<i class="fas fa-chevron-up"></i>';
                         button.setAttribute('aria-expanded', 'true');
 
-                        // Pour permettre une animation fluide, on fixe d'abord la hauteur à ce qu'elle serait
+                        // To allow a smooth animation, first fix the height to what it would be
                         content.style.height = content.scrollHeight + "px";
 
-                        // Après la transition, on remet la hauteur à 'auto' pour l'ajuster aux futurs contenus
+                        // After the transition, reset the height to 'auto' to adjust for future content
                         content.addEventListener('transitionend', function handler() {
                             content.style.height = 'auto';
                             content.removeEventListener('transitionend', handler);
@@ -342,7 +342,7 @@ permalink: /apropos.html
                         button.innerHTML = '<i class="fas fa-chevron-down"></i>';
                         button.setAttribute('aria-expanded', 'false');
 
-                        // Pour fermer, on calcule d'abord la hauteur actuelle puis on la ramène à 0
+                        // To close, first calculate the current height then bring it back to 0
                         content.style.height = content.scrollHeight + "px";
                         requestAnimationFrame(() => {
                             content.style.height = "0";
@@ -428,24 +428,24 @@ permalink: /apropos.html
     </script>
 
 
-    <!-- Script images intérêts-->
+    <!-- Interests image script -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Crée un élément img pour afficher l'image en survol
+            // Create an img element to display the image on hover
             const hoverImage = document.createElement('img');
             hoverImage.classList.add('hover-image');
             document.body.appendChild(hoverImage);
 
-            // Détection des appareils mobiles
+            // Mobile device detection
             function isMobileDevice() {
-                return window.innerWidth <= 768; // Vous pouvez ajuster la largeur selon votre définition de "mobile"
+                return window.innerWidth <= 768; // Adjust the width to match your definition of "mobile"
             }
 
-            // Sélectionne tous les éléments avec la classe interest
+            // Select all elements with the interest class
             const interests = document.querySelectorAll('.interest');
 
             interests.forEach(interest => {
-                // Affichage de l'image au survol
+                // Show image on hover
                 interest.addEventListener('mouseover', (event) => {
                     if (isMobileDevice()) return;
                     const imageUrl = interest.getAttribute('data-image');
@@ -453,7 +453,7 @@ permalink: /apropos.html
                     hoverImage.style.display = 'block';
                 });
 
-                // Throttle via requestAnimationFrame pour limiter les recalculs de position
+                // Throttle via requestAnimationFrame to limit position recalculations
                 let ticking = false;
                 interest.addEventListener('mousemove', (event) => {
                     if (isMobileDevice()) return;
@@ -491,7 +491,7 @@ permalink: /apropos.html
                 });
             });
 
-            // Cacher l'image de survol si la fenêtre est redimensionnée sur mobile
+            // Hide hover image if the window is resized on mobile
             window.addEventListener('resize', () => {
                 if (isMobileDevice()) {
                     hoverImage.style.display = 'none';

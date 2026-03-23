@@ -1,8 +1,10 @@
 # jekyll-cirrus
 
-A clean, minimal Jekyll template for a **CV + blog** site. Easily configurable via YAML data files — no template editing required for personal content.
+A clean, minimal Jekyll template for a **CV + blog** site, designed to be deployed on **GitHub Pages in minutes** — no server, no build pipeline, no command line required.
 
-Built with Bootstrap 5, Font Awesome 6, and GitHub Pages compatibility.
+All personal content is configured through YAML files — no template editing needed.
+
+Built with Bootstrap 5, Font Awesome 6, and full GitHub Pages compatibility.
 
 ## Features
 
@@ -12,28 +14,42 @@ Built with Bootstrap 5, Font Awesome 6, and GitHub Pages compatibility.
 - **Print-friendly** — optimized CV layout for PDF export
 - **Accessible** — keyboard navigation, ARIA labels, skip link, screen-reader support
 - **SEO** — Open Graph, Twitter Card, JSON-LD structured data, sitemap
+- **Customizable** — edit `custom.css` to change colors and fonts without touching the core stylesheet
 
-## Quick start
+---
+
+## Deploy to GitHub Pages (no server needed)
+
+> Your site will be live at `https://your-username.github.io/your-repo/` within minutes.
 
 ### 1. Use this template
 
-Click **"Use this template"** on GitHub to create your own repo.
+Click **"Use this template"** → **"Create a new repository"** on GitHub.
 
-### 2. Configure your site
+### 2. Enable GitHub Pages
 
-Edit `_config.yml`:
+In your new repo: **Settings → Pages → Source → Deploy from branch** → select `main` / `root` → **Save**.
+
+That's it. GitHub builds and hosts your site automatically on every push. No Ruby, no terminal, no CI setup needed.
+
+---
+
+## Configure your site
+
+### 3. Edit `_config.yml`
 
 ```yaml
 title: My Site
 home_title: "Welcome!"
 home_tagline: "Discover my latest articles."
-url: "https://yourdomain.com"
+url: "https://your-username.github.io"
+baseurl: "/your-repo"          # leave "" if the site is at the root domain
 description: "Your site description for SEO."
 ```
 
-### 3. Fill in your personal info
+### 4. Fill in your personal info
 
-Edit `_data/author.yml` — this is the only file you need to touch for the navbar, footer, about page header and bio:
+Edit `_data/author.yml`:
 
 ```yaml
 name: Jane Doe
@@ -46,9 +62,9 @@ bio: >-
   Write your bio here...
 ```
 
-### 4. Fill in your CV data
+### 5. Fill in your CV data
 
-Edit the other files in `_data/`:
+Edit the files in `_data/`:
 
 | File | Content |
 |---|---|
@@ -59,27 +75,77 @@ Edit the other files in `_data/`:
 | `formations.yml` | Education & training |
 | `languages.yml` | Language skills |
 
-### 5. Add your profile photo
+### 6. Add your profile photo
 
 Replace `assets/photo.webp` with your own picture (recommended: square, ~300×300px).
 
-### 6. Write your first article
+---
 
-Use the template in `Templates/Article Jekyll.md` and drop it into `_posts/` with the filename format `YYYY-MM-DD-your-title.md`.
+## Writing articles
 
-### 7. Deploy to GitHub Pages
+### Workflow with Obsidian + Obsidian Git plugin
 
-In your repo **Settings → Pages**, set source to **Deploy from branch** → `main` / `root`.
+> Write in Obsidian, publish with two clicks — no terminal needed.
+
+1. **Create a draft** — use the template at `Templates/Article Jekyll.md` (Templater plugin recommended). Save the note to the `_drafts/` folder of this repo. Jekyll won't publish it yet.
+
+2. **Write your article** in Obsidian. Add images to `assets/`.
+
+3. **When ready to publish** — rename the file to `YYYY-MM-DD-your-title.md` and move it to `_posts/`.
+
+4. **Push to GitHub** — open the Obsidian Git panel (left sidebar) → **Stage all** → **Commit** → **Push**.
+
+5. **Done** — GitHub Pages rebuilds your site automatically within ~1 minute.
+
+### Article front matter reference
+
+```yaml
+---
+layout: post
+title: "Your article title"
+date: 2025-01-15
+excerpt: "Short summary shown on cards and in search."
+tags: [Azure, PowerShell]
+image: /assets/my-image.png       # card thumbnail + article header
+banner: /assets/my-banner.jpg    # full-width header (overrides image)
+placeholder: true                 # shows an "AI-generated" disclaimer banner
+---
+```
+
+---
+
+## Customize the look
+
+Edit **`custom.css`** at the root of the repo — this is the only file you need to touch for visual changes. It is loaded after the main stylesheet so your values always win.
+
+```css
+:root {
+    --color-primary:    #081a34;   /* navbar, headings, buttons */
+    --color-secondary:  #003b82;   /* links, borders, highlights */
+    --color-background: #eef2f3;   /* page background */
+    --color-card-bg:    #ffffff;   /* card / section background */
+    --font-main: 'Poppins', sans-serif;
+    --border-radius: 15px;
+}
+```
+
+Uncomment and change any value. To use a different Google Font, update `--font-main` and add the corresponding `<link>` in `_layouts/default.html`.
+
+---
 
 ## Local development
 
 ```bash
 bundle install
-bundle exec jekyll serve
+bundle exec jekyll serve --drafts   # --drafts also shows _drafts/ posts
 ```
 
 Requires Ruby and Bundler. The `Gemfile` uses `github-pages` for full GitHub Pages compatibility.
 
+---
+
 ## License
 
-MIT — do whatever you want with it. Attribution appreciated but not required.
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — free to use, modify, and redistribute for any purpose, **including commercially**, as long as you credit the original author:
+
+> **Arnaud FERRIERE** — [surlesnuages.fr](https://surlesnuages.fr) — [github.com/Arnaud-Ferriere/jekyll-cirrus](https://github.com/Arnaud-Ferriere/jekyll-cirrus)

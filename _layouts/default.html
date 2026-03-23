@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -21,7 +21,7 @@
 
     <!-- Open Graph -->
     <meta property="og:site_name" content="{{ site.title }}">
-    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale" content="en_US">
     <meta property="og:title" content="{{ page.title | default: site.title }}">
     <meta property="og:description" content="{{ page_desc }}">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
@@ -100,10 +100,13 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{ '/index.css' | relative_url }}?v2.4">
+
+    <!-- User customization — edit custom.css to override colors, fonts, etc. -->
+    <link rel="stylesheet" type="text/css" href="{{ '/custom.css' | relative_url }}">
 </head>
 
 <body>
-    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     {% include navbar.html %}
 
     <main id="main-content">

@@ -1,11 +1,11 @@
 <!-- Back to top button -->
-<button id="back-to-top" type="button" aria-label="Retour en haut de page"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
+<button id="back-to-top" type="button" aria-label="Back to top"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var backToTopButton = document.getElementById('back-to-top');
 
-        // Debounce : attend que le scroll soit terminé avant de réagir
+        // Debounce: wait for scroll to finish before reacting
         var scrollTimeout;
         window.addEventListener('scroll', function () {
             if (scrollTimeout) cancelAnimationFrame(scrollTimeout);

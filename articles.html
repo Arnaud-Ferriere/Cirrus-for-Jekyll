@@ -8,12 +8,12 @@ permalink: /articles/
     <h1 class="display-5 mb-4">Articles</h1>
 
     <!-- Sélecteur de vue -->
-    <div class="articles-view-toggle mb-4" role="group" aria-label="Mode d'affichage">
+    <div class="articles-view-toggle mb-4" role="group" aria-label="Display mode">
         <button id="btn-chrono" class="view-toggle-btn active" aria-pressed="true">
-            <i class="fas fa-list" aria-hidden="true"></i> Chronologique
+            <i class="fas fa-list" aria-hidden="true"></i> Chronological
         </button>
         <button id="btn-tags" class="view-toggle-btn" aria-pressed="false">
-            <i class="fas fa-tags" aria-hidden="true"></i> Par tags
+            <i class="fas fa-tags" aria-hidden="true"></i> By tags
         </button>
     </div>
 
@@ -21,7 +21,7 @@ permalink: /articles/
     <div id="view-chrono">
         {% assign posts_chrono = site.posts | sort: 'date' | reverse %}
         {% if posts_chrono.size == 0 %}
-        <p class="text-muted">Aucun article publié pour l'instant.</p>
+        <p class="text-muted">No articles published yet.</p>
         {% else %}
         {% assign posts_by_year = posts_chrono | group_by_exp: "post", "post.date | date: '%Y'" %}
         {% for year_group in posts_by_year %}
@@ -61,7 +61,7 @@ permalink: /articles/
         </div>
 
         {% if sorted_tags.size == 0 %}
-        <p class="text-muted">Aucun article publié pour l'instant.</p>
+        <p class="text-muted">No articles published yet.</p>
         {% else %}
         {% for tag in sorted_tags %}
         <div class="tags-page-section" id="{{ tag[0] | slugify }}">
@@ -104,7 +104,7 @@ permalink: /articles/
         btnChrono.setAttribute('aria-pressed', 'false');
     });
 
-    // Utilisé par les liens de tags depuis la vue chronologique
+    // Used by tag links from the chronological view
     function switchToTagsView(event, anchor) {
         event.preventDefault();
         btnTags.click();

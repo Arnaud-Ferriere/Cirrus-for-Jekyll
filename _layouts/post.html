@@ -14,7 +14,7 @@ layout: default
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Accueil",
+      "name": "Home",
       "item": "{{ site.url }}"
     },
     {
@@ -37,7 +37,7 @@ layout: default
     <div class="article-container p-4">
         <header class="text-center mb-4">
             <h1 class="display-5">{{ page.title }}</h1>
-            <p class="text-muted">Publié le : {{ page.date | date: "%d/%m/%Y" }} &nbsp;·&nbsp; <i class="fas fa-clock" aria-hidden="true"></i> {{ reading_time }} min de lecture &nbsp;·&nbsp; <button class="print-btn" onclick="window.print()" aria-label="Enregistrer en PDF"><i class="fas fa-file-pdf" aria-hidden="true"></i> PDF</button></p>
+            <p class="text-muted">Published: {{ page.date | date: "%m/%d/%Y" }} &nbsp;·&nbsp; <i class="fas fa-clock" aria-hidden="true"></i> {{ reading_time }} min read &nbsp;·&nbsp; <button class="print-btn" onclick="window.print()" aria-label="Save as PDF"><i class="fas fa-file-pdf" aria-hidden="true"></i> PDF</button></p>
             {% assign banner_src = page.banner | default: site.default_banner %}
             {% assign cover_src = page.image | default: site.default_image %}
             {% if banner_src and banner_src != "" %}
@@ -49,14 +49,14 @@ layout: default
 
         {% if page.placeholder %}
         <div class="alert-placeholder">
-            <i class="fas fa-robot" aria-hidden="true"></i> Généré par IA comme placeholder — pas encore un vrai article.
+            <i class="fas fa-robot" aria-hidden="true"></i> AI-generated as a placeholder — not yet a real article.
         </div>
         {% endif %}
 
         <!-- Table des matières (auto-generated via JS, shown only if 3+ headings) -->
         <div id="toc-wrapper" style="display: none;">
             <details class="toc-container" open>
-                <summary>Table des matières</summary>
+                <summary>Table of contents</summary>
                 <ol class="toc-list" id="toc-list"></ol>
             </details>
         </div>
@@ -97,7 +97,7 @@ layout: default
 {% if related_posts.size > 0 %}
 <section class="container mt-4 mb-5 related-posts">
     <div class="section-header">
-        <h2 class="hover-underline-animation">Articles similaires</h2>
+        <h2 class="hover-underline-animation">Related Articles</h2>
     </div>
     <div class="row">
         {% for post in related_posts %}
@@ -109,7 +109,7 @@ layout: default
                 <div class="card-body">
                     <h5 class="card-title">{{ post.title }}</h5>
                     <p class="card-text">{{ post.excerpt | strip_html | truncate: 100 }}</p>
-                    <a href="{{ post.url | relative_url }}" class="btn btn-primary">Lire plus</a>
+                    <a href="{{ post.url | relative_url }}" class="btn btn-primary">Read more</a>
                 </div>
             </div>
         </div>
