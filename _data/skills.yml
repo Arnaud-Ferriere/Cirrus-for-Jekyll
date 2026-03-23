@@ -1,0 +1,11 @@
+# Technical skills — add as many entries as you need.
+# level: Expert | Proficient | Intermediate | Beginner (or any string)
+
+- name: "Your main skill"
+  level: "Expert"
+
+- name: "Another skill"
+  level: "Proficient"
+
+- name: "Yet another skill"
+  level: "Intermediate"

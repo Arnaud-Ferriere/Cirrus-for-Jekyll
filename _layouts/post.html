@@ -1,0 +1,143 @@
+---
+layout: default
+---
+
+{% assign words = content | number_of_words %}
+{% if words < 360 %}{% assign reading_time = 1 %}{% else %}{% assign reading_time = words | divided_by: 180 %}{% endif %}
+
+<!-- Breadcrumbs JSON-LD (invisible, SEO only) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "{{ site.url }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ page.title }}",
+      "item": "{{ page.url | absolute_url }}"
+    }{% if page.tags.size > 0 %},
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ page.tags | first }}",
+      "item": "{{ '/tags/' | absolute_url }}"
+    }{% endif %}
+  ]
+}
+</script>
+
+<article class="container mt-5">
+    <div class="article-container p-4">
+        <header class="text-center mb-4">
+            <h1 class="display-5">{{ page.title }}</h1>
+            <p class="text-muted">Publié le : {{ page.date | date: "%d/%m/%Y" }} &nbsp;·&nbsp; <i class="fas fa-clock" aria-hidden="true"></i> {{ reading_time }} min de lecture &nbsp;·&nbsp; <button class="print-btn" onclick="window.print()" aria-label="Enregistrer en PDF"><i class="fas fa-file-pdf" aria-hidden="true"></i> PDF</button></p>
+            {% assign banner_src = page.banner | default: site.default_banner %}
+            {% assign cover_src = page.image | default: site.default_image %}
+            {% if banner_src and banner_src != "" %}
+            <img src="{{ banner_src | relative_url }}" class="article-banner" alt="{{ page.title }}" loading="lazy">
+            {% elsif cover_src and cover_src != "" %}
+            <img src="{{ cover_src | relative_url }}" class="article-cover" alt="{{ page.title }}" loading="lazy">
+            {% endif %}
+        </header>
+
+        {% if page.placeholder %}
+        <div class="alert-placeholder">
+            <i class="fas fa-robot" aria-hidden="true"></i> Généré par IA comme placeholder — pas encore un vrai article.
+        </div>
+        {% endif %}
+
+        <!-- Table des matières (auto-generated via JS, shown only if 3+ headings) -->
+        <div id="toc-wrapper" style="display: none;">
+            <details class="toc-container" open>
+                <summary>Table des matières</summary>
+                <ol class="toc-list" id="toc-list"></ol>
+            </details>
+        </div>
+
+        <section class="content">
+            {{ content }}
+        </section>
+
+        {% if page.tags.size > 0 %}
+        <div class="post-tags">
+            {% for tag in page.tags %}
+            <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag-badge">
+                <i class="fas fa-tag" aria-hidden="true"></i> {{ tag }}
+            </a>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    </div>
+</article>
+
+{% assign related_posts = "" | split: "" %}
+{% for post in site.posts %}
+  {% unless post.url == page.url %}
+    {% assign common = 0 %}
+    {% for tag in post.tags %}
+      {% if page.tags contains tag %}
+        {% assign common = common | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    {% if common >= 1 %}
+      {% assign related_posts = related_posts | push: post %}
+    {% endif %}
+  {% endunless %}
+{% endfor %}
+{% assign related_posts = related_posts | slice: 0, 3 %}
+
+{% if related_posts.size > 0 %}
+<section class="container mt-4 mb-5 related-posts">
+    <div class="section-header">
+        <h2 class="hover-underline-animation">Articles similaires</h2>
+    </div>
+    <div class="row">
+        {% for post in related_posts %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                {% if post.image %}
+                <img src="{{ post.image | relative_url }}" class="card-img-top" alt="{{ post.title }}" loading="lazy">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.excerpt | strip_html | truncate: 100 }}</p>
+                    <a href="{{ post.url | relative_url }}" class="btn btn-primary">Lire plus</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<script>
+// Auto-generate TOC from h2 and h3 inside the article
+(function() {
+    var content = document.querySelector('article .content');
+    if (!content) return;
+    var headings = content.querySelectorAll('h2, h3');
+    if (headings.length < 3) return;
+
+    var tocList = document.getElementById('toc-list');
+    headings.forEach(function(h, i) {
+        if (!h.id) h.id = 'heading-' + i;
+        var li = document.createElement('li');
+        if (h.tagName === 'H3') li.classList.add('toc-h3');
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent;
+        li.appendChild(a);
+        tocList.appendChild(li);
+    });
+    document.getElementById('toc-wrapper').style.display = 'block';
+})();
+
+</script>

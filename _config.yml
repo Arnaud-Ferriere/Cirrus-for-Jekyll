@@ -1,0 +1,41 @@
+title: My Site
+home_title: "Welcome!"
+home_tagline: "Discover my latest articles and more."
+default_image: /assets/photo.webp
+default_banner: ""
+description: >-
+  A short description of your site, used for SEO meta tags.
+url: "https://yourdomain.com"
+baseurl: ""
+lang: en
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: /articles/:title/
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+
+paginate: 6
+paginate_path: "/page:num/"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .claude
+  - .vscode
+  - node_modules
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

@@ -1,0 +1,47 @@
+# Work experience.
+# Two supported structures:
+#
+# 1. Direct experience (context + responsibilities + tech)
+# 2. Experience with sub-missions (missions[])
+#
+# See examples below.
+
+# ── Example 1: direct experience ──────────────────────────────────────────────
+- company: "Acme Corp"
+  logo: "assets/acme-logo.svg"
+  period: "2021 - Present"
+  title: "Systems Administrator"
+  description: >-
+    Brief description of the company and your overall role there.
+  context: >-
+    Managed a hybrid infrastructure of 150 users across 3 sites.
+  responsibilities:
+    - category: "Active Directory & Identity"
+      items:
+        - "Managed user lifecycle and GPO policies"
+        - "Implemented MFA and conditional access policies"
+    - category: "Cloud & Collaboration"
+      items:
+        - "Migrated on-prem Exchange to Exchange Online"
+        - "Administered Microsoft 365 licenses and security"
+  tech: "Active Directory, Microsoft 365, PowerShell, Azure"
+
+# ── Example 2: experience with missions (e.g. consulting) ─────────────────────
+- company: "Consulting Firm"
+  logo: "assets/firm-logo.svg"
+  period: "2018 - 2021"
+  title: "IT Consultant"
+  description: >-
+    Brief description of the consulting company and your role.
+  missions:
+    - client: "Client Name"
+      logo: "assets/client-logo.svg"
+      period: "2019 - 2021"
+      context: >-
+        Context of the mission: team size, scope, environment.
+      responsibilities:
+        - category: "Administration"
+          items:
+            - "Deployed and maintained the Active Directory infrastructure"
+            - "Automated onboarding with PowerShell scripts"
+      tech: "Active Directory, PowerShell, Windows Server 2019"

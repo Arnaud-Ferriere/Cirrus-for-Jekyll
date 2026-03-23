@@ -1,0 +1,25 @@
+# ─────────────────────────────────────────────
+#  Author configuration — edit this file first!
+# ─────────────────────────────────────────────
+
+name: Jane Doe
+name_display: Jane DOE
+role: Your Job Title
+tagline: "Skill A | Skill B | Skill C"
+photo: assets/photo.webp
+photo_alt: "Profile picture of the site author"
+linkedin: https://www.linkedin.com/in/your-profile/
+github: https://github.com/your-username
+email_user: your.email
+email_domain: example.com
+bio: >-
+  Write your bio here. Tell us who you are, what you do, and why you
+  created this site. You can use <br /> for line breaks.
+sign_off: "See you soon! - Jane DOE"
+interests:
+  - label: Your first interest
+    image: assets/interest1.webp
+    separator: ","
+  - label: your second interest
+    image: assets/interest2.webp
+    separator: "."

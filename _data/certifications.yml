@@ -1,0 +1,8 @@
+# Professional certifications.
+# badge: path to a badge image in assets/
+# url: link to your public credential
+
+- name: "Certification Name"
+  date: "Month Year"
+  badge: "assets/your-badge.svg"
+  url: "https://your-credential-url.com"

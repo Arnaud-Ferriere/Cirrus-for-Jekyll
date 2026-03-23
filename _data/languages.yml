@@ -1,0 +1,13 @@
+# Language skills.
+# flag: path to a flag image in assets/
+# url and link_text are optional (e.g. for a language certification)
+
+- name: "English"
+  flag: "assets/great-britain.png"
+  level: "Native"
+
+- name: "French"
+  flag: "assets/france.png"
+  level: "Fluent (C1)"
+  url: "https://optional-certification-url.com"
+  link_text: "View certification"

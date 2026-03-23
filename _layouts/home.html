@@ -1,0 +1,156 @@
+---
+layout: default
+---
+
+<!-- En-tête de bienvenue -->
+<header class="container mt-5 text-center">
+    <h1 class="display-4">{{ site.home_title }}</h1>
+    <p class="lead">{{ site.home_tagline }}</p>
+</header>
+
+<!-- Section Articles -->
+<section id="articles" class="container mt-5">
+    <div class="section-header">
+        <h2 class="hover-underline-animation">Articles récents</h2>
+    </div>
+    <div class="row">
+        {% assign posts_list = paginator.posts | default: site.posts %}
+        {% for post in posts_list %}
+        {% assign words = post.content | number_of_words %}
+        {% if words < 360 %}{% assign reading_time = 1 %}{% else %}{% assign reading_time = words | divided_by: 180 %}{% endif %}
+        <div class="col-sm-6 col-lg-4 mb-4">
+            <div class="card h-100" style="cursor:pointer;">
+                {% assign card_image = post.image | default: site.default_image %}
+                {% if card_image and card_image != "" %}
+                <img src="{{ card_image | relative_url }}" class="card-img-top" alt="{{ post.title }}" loading="lazy">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{{ post.url | relative_url }}" class="stretched-link text-decoration-none">{{ post.title }}</a>
+                    </h5>
+                    <p class="card-text">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+                    <p class="text-muted small mb-0">Publié le : {{ post.date | date: "%d/%m/%Y" }} &nbsp;·&nbsp; <i class="fas fa-clock" aria-hidden="true"></i> {{ reading_time }} min</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if paginator.total_pages > 1 %}
+    <nav aria-label="Pagination des articles" class="mt-4">
+        <ul class="pagination justify-content-center">
+            {% if paginator.previous_page %}
+            <li class="page-item">
+                <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">&laquo; Plus récents</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled"><span class="page-link">&laquo; Plus récents</span></li>
+            {% endif %}
+
+            {% for i in (1..paginator.total_pages) %}
+            <li class="page-item {% if paginator.page == i %}active{% endif %}">
+                {% if i == 1 %}
+                <a class="page-link" href="{{ '/' | relative_url }}">{{ i }}</a>
+                {% else %}
+                <a class="page-link" href="{{ site.paginate_path | replace: ':num', i | relative_url }}">{{ i }}</a>
+                {% endif %}
+            </li>
+            {% endfor %}
+
+            {% if paginator.next_page %}
+            <li class="page-item">
+                <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">Plus anciens &raquo;</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled"><span class="page-link">Plus anciens &raquo;</span></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</section>
+
+{% if site.posts.size == 0 %}
+<section class="container mt-3 text-center">
+    <p class="text-muted">Aucun article pour le moment. Revenez bientôt !</p>
+</section>
+{% endif %}
+
+<!-- Rechercher & Découvrir -->
+<aside class="container mt-5 mb-5">
+    <div class="section-header mb-3">
+        <h3 class="hover-underline-animation">Rechercher un article</h3>
+    </div>
+
+    <label for="home-search-input" class="visually-hidden">Rechercher un article</label>
+    <input type="text" id="home-search-input" class="form-control form-control-lg mb-3"
+        placeholder="Tapez votre recherche...">
+    <div id="home-search-results"></div>
+
+    {% if site.tags.size > 0 %}
+    <div class="tag-cloud mt-4">
+        {% assign sorted_tags = site.tags | sort %}
+        {% for tag in sorted_tags %}
+        {% assign count = tag[1].size %}
+        {% if count >= 5 %}{% assign tag_size = "tag-xl" %}
+        {% elsif count >= 3 %}{% assign tag_size = "tag-lg" %}
+        {% elsif count >= 2 %}{% assign tag_size = "tag-md" %}
+        {% else %}{% assign tag_size = "tag-sm" %}
+        {% endif %}
+        <a href="{{ '/tags/' | relative_url }}#{{ tag[0] | slugify }}" class="tag-cloud-item {{ tag_size }}">
+            {{ tag[0] }} <span class="tag-count">{{ count }}</span>
+        </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</aside>
+
+<script>
+(function() {
+    var posts = [
+        {% for post in site.posts %}
+        {
+            title: {{ post.title | jsonify }},
+            url: {{ post.url | relative_url | jsonify }},
+            date: "{{ post.date | date: '%d/%m/%Y' }}",
+            excerpt: {{ post.excerpt | strip_html | truncate: 150 | jsonify }},
+            tags: {{ post.tags | jsonify }},
+            content: {{ post.content | strip_html | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ];
+
+    var input = document.getElementById('home-search-input');
+    var results = document.getElementById('home-search-results');
+
+    input.addEventListener('input', function() {
+        var query = this.value.toLowerCase().trim();
+        if (query.length < 2) { results.innerHTML = ''; return; }
+
+        var found = posts.filter(function(p) {
+            return p.title.toLowerCase().includes(query) ||
+                   p.excerpt.toLowerCase().includes(query) ||
+                   p.content.toLowerCase().includes(query) ||
+                   p.tags.some(function(t) { return t.toLowerCase().includes(query); });
+        });
+
+        if (found.length === 0) {
+            results.innerHTML = '<p class="text-muted">Aucun article trouvé.</p>';
+            return;
+        }
+
+        var html = '<div class="row">';
+        found.forEach(function(p) {
+            html += '<div class="col-md-6 mb-3">' +
+                '<div class="card p-3 h-100" style="cursor:pointer;">' +
+                '<h5 class="card-title"><a href="' + p.url + '" class="stretched-link">' + p.title + '</a></h5>' +
+                '<p class="card-text text-muted">' + p.excerpt + '</p>' +
+                '<p class="text-muted small mb-0">' + p.date + '</p>' +
+                '</div></div>';
+        });
+        html += '</div>';
+        results.innerHTML = html;
+    });
+})();
+</script>
+
+{{ content }}
