@@ -1090,29 +1090,41 @@
     }
   }
   
-  /* Footer - SVG as background image (no gap possible) */
+  /* Footer */
   .cloud-footer {
-    background-image: url('/assets/clouds-footer.svg');
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-color: var(--color-background);
-    padding-top: 15vw;
+    position: relative;
+    background-color: var(--color-primary);
+    padding: calc(6vw + 0.5rem) 1rem 1.5rem;
     text-align: center;
-    color: var(--color-primary);
+    color: #fff;
     margin: 0;
+  }
+
+  .footer-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   .cloud-footer p {
+    position: relative;
     margin: 0;
-    padding: 1rem 0;
-    font-size: 1.1rem;
+    padding: 0.4rem 0;
+    font-size: 0.95rem;
   }
 
   .cloud-footer a {
-    color: #0056b3;
+    color: #a8c4e8;
     text-decoration: none;
     font-weight: bold;
+  }
+
+  .cloud-footer a:hover {
+    color: #fff;
+    text-decoration: underline;
   }
   
   /* Styling for sortable table headers with Font Awesome icons */
