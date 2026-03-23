@@ -269,7 +269,7 @@ Requires Ruby and Bundler. The `Gemfile` uses `github-pages` for full GitHub Pag
 
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — free to use, modify, and redistribute for any purpose, **including commercially**, as long as you credit the original author:
 
-> **Arnaud FERRIERE** — [surlesnuages.fr](https://surlesnuages.fr) — [github.com/Arnaud-Ferriere/jekyll-cirrus](https://github.com/Arnaud-Ferriere/jekyll-cirrus)
+> **Arnaud FERRIERE** — [surlesnuages.fr](https://surlesnuages.fr) — [github.com/Arnaud-Ferriere/Cirrus-for-Jekyll](https://github.com/Arnaud-Ferriere/Cirrus-for-Jekyll)
 
 ---
 

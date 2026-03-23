@@ -1,17 +1,17 @@
-# Contributing to jekyll-cirrus
+# Contributing to Cirrus-for-Jekyll
 
 Thanks for your interest! Contributions are welcome, whether it's a bug report, a suggestion, or a pull request.
 
 ## Reporting a bug
 
-Open an [issue](https://github.com/Arnaud-Ferriere/jekyll-cirrus/issues) and include:
+Open an [issue](https://github.com/Arnaud-Ferriere/Cirrus-for-Jekyll/issues) and include:
 - What you expected to happen
 - What actually happened
 - Steps to reproduce (browser, OS if relevant)
 
 ## Suggesting an improvement
 
-Open an [issue](https://github.com/Arnaud-Ferriere/jekyll-cirrus/issues) with your idea. No need for a formal format — a short description is fine.
+Open an [issue](https://github.com/Arnaud-Ferriere/Cirrus-for-Jekyll/issues) with your idea. No need for a formal format — a short description is fine.
 
 ## Submitting a pull request
 
