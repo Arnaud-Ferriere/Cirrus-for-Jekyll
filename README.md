@@ -141,7 +141,11 @@ To use a different Google Font, update `--font-main` and add the corresponding `
 
 ### Footer wave
 
-The footer wave is an SVG file at `assets/clouds-footer.svg`. You can replace it with any SVG you like, or delete it and remove the `<img class="footer-wave">` line in `_includes/footer.html` to have a plain footer.
+The decorative wave above the footer is driven by `assets/clouds-footer.svg`. The color is handled automatically by CSS (`--color-background`) — no need to touch the SVG if you change your color scheme.
+
+The wave is only rendered if the file exists: delete `assets/clouds-footer.svg` and the footer will simply display without it.
+
+To **replace** the wave shape: swap `assets/clouds-footer.svg` with any SVG you like — it will stretch to full width automatically.
 
 ---
 

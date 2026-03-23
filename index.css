@@ -1105,8 +1105,15 @@
 
   .footer-wave {
     width: 100%;
-    height: auto;
+    height: 5.5vw;
     display: block;
+    background-color: var(--color-background);
+    -webkit-mask-image: url('/assets/clouds-footer.svg');
+    mask-image: url('/assets/clouds-footer.svg');
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
   }
 
   .footer-content {
