@@ -215,6 +215,45 @@ The entry point is `assets/css/main.scss`. Jekyll compiles it automatically — 
 
 ---
 
+## Adding comments (optional)
+
+Jekyll generates static HTML, so there is no built-in comment system. The recommended option for a developer-oriented site is **[giscus](https://giscus.app)** — it stores comments in GitHub Discussions, is free, open source, and has built-in dark mode support.
+
+### 1. Enable GitHub Discussions
+
+In your repo: **Settings → General → Features → Discussions** → enable it.
+
+### 2. Get your giscus script
+
+Go to [giscus.app](https://giscus.app), enter your repo name, choose your settings, and copy the generated `<script>` tag. It will look like:
+
+```html
+<script src="https://giscus.app/client.js"
+        data-repo="your-username/your-repo"
+        data-repo-id="..."
+        data-category="..."
+        data-category-id="..."
+        data-mapping="pathname"
+        data-theme="preferred_color_scheme"
+        crossorigin="anonymous"
+        async>
+</script>
+```
+
+### 3. Add it to `_layouts/post.html`
+
+Paste the script just before the closing `</article>` tag, after the tags section:
+
+```html
+<div class="giscus-comments container mt-4 mb-2">
+    <!-- paste your giscus script here -->
+</div>
+```
+
+That's it — comments will appear automatically on each article page.
+
+---
+
 ## Local development
 
 ```bash
