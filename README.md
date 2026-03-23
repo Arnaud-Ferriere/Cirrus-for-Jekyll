@@ -1,9 +1,5 @@
 # jekyll-cirrus
 
-[![Ko-fi](https://img.shields.io/badge/Support%20on-Ko--fi-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/surlesnuages)
-
-If this template saves you some time, a coffee is always appreciated! ☕
-
 A clean, minimal Jekyll template for a **CV + blog** site, designed to be deployed on **GitHub Pages in minutes** — no server, no build pipeline, no command line required.
 
 All personal content is configured through YAML files — no template editing needed.
@@ -153,3 +149,9 @@ Requires Ruby and Bundler. The `Gemfile` uses `github-pages` for full GitHub Pag
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — free to use, modify, and redistribute for any purpose, **including commercially**, as long as you credit the original author:
 
 > **Arnaud FERRIERE** — [surlesnuages.fr](https://surlesnuages.fr) — [github.com/Arnaud-Ferriere/jekyll-cirrus](https://github.com/Arnaud-Ferriere/jekyll-cirrus)
+
+---
+
+If this template saved you some time, a coffee is always appreciated! ☕
+
+[![Ko-fi](https://img.shields.io/badge/Support%20on-Ko--fi-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/surlesnuages)
