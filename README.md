@@ -8,6 +8,22 @@ Built with Bootstrap 5, Font Awesome 6, and full GitHub Pages compatibility.
 
 **Live demo:** [surlesnuages.fr](https://surlesnuages.fr)
 
+## Table of contents
+
+- [Features](#features)
+- [Deploy to GitHub Pages](#deploy-to-github-pages-no-server-needed)
+- [Configure your site](#configure-your-site)
+- [Writing articles](#writing-articles)
+- [Translate the UI](#translate-the-ui)
+- [Dark mode](#dark-mode)
+- [Customize the look](#customize-the-look)
+- [Adding comments (optional)](#adding-comments-optional)
+- [GitHub Pages — authorized use](#github-pages--authorized-use)
+- [Local development](#local-development)
+- [License](#license)
+
+---
+
 ## Features
 
 - **CV page** — skills, work experience, certifications, languages, interests
