@@ -6,6 +6,7 @@
 nav_home: "Home"
 nav_articles: "Articles"
 nav_about: "About"
+nav_theme_toggle: "Theme"
 
 # Home page
 home_recent: "Recent Articles"
