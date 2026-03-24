@@ -26,24 +26,24 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ site.data.author.linkedin }}" target="_blank"
                     title="LinkedIn" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin"></i><span class="sr-only">(opens my LinkedIn page)</span>
+                    <i class="fab fa-linkedin" aria-hidden="true"></i><span class="visually-hidden">{{ site.data.ui.a11y_linkedin }}</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ site.data.author.github }}" target="_blank" title="GitHub"
                     rel="noopener noreferrer">
-                    <i class="fab fa-github"></i><span class="sr-only">(opens my GitHub page)</span>
+                    <i class="fab fa-github" aria-hidden="true"></i><span class="visually-hidden">{{ site.data.ui.a11y_github }}</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="mailto:{{ site.data.author.email_user }}@{{ site.data.author.email_domain }}" title="Send an email"
+                <a class="nav-link" href="mailto:{{ site.data.author.email_user }}@{{ site.data.author.email_domain }}" title="{{ site.data.ui.a11y_email }}"
                     rel="noopener noreferrer">
-                    <i class="fas fa-envelope"></i><span class="sr-only">(opens the mail app to send me an email)</span>
+                    <i class="fas fa-envelope" aria-hidden="true"></i><span class="visually-hidden">{{ site.data.ui.a11y_email }}</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ '/feed.xml' | relative_url }}" title="RSS Feed" rel="noopener noreferrer">
-                    <i class="fas fa-rss"></i><span class="sr-only">(blog RSS feed)</span>
+                <a class="nav-link" href="{{ '/feed.xml' | relative_url }}" title="{{ site.data.ui.a11y_rss }}" rel="noopener noreferrer">
+                    <i class="fas fa-rss" aria-hidden="true"></i><span class="visually-hidden">{{ site.data.ui.a11y_rss }}</span>
                 </a>
             </li>
             <li class="nav-item">
