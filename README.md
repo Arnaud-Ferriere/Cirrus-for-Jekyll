@@ -254,6 +254,19 @@ That's it — comments will appear automatically on each article page.
 
 ---
 
+## GitHub Pages — authorized use
+
+This template is designed for **personal or portfolio sites** and complies with [GitHub Pages Terms of Service](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#prohibited-uses).
+
+GitHub Pages free hosting is subject to the following limits:
+- Repositories must be under **1 GB**
+- Sites must not exceed **100 GB of bandwidth per month**
+- No more than **10 builds per hour**
+
+GitHub Pages is **not intended** for commercial use (online stores, SaaS, etc.). This template falls well within the allowed use cases: personal portfolio, blog, CV. When in doubt, refer to [GitHub's official guidelines](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#prohibited-uses).
+
+---
+
 ## Local development
 
 ```bash
