@@ -1,3 +1,68 @@
+/* ─────────────────────────────────────────────────────────────
+   TABLES — Card aesthetic
+   Articles  : article .content table (CSS-only, no JS wrapper)
+   About     : .stacked-card table.table override
+   ───────────────────────────────────────────────────────────── */
+
+/* Base — scroll + rounded corners without a wrapper div */
+article .content table,
+.stacked-card table.table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--box-shadow-light);
+  margin: 1.5rem 0;
+  font-size: 0.92em;
+}
+
+/* Header */
+article .content table thead th,
+.stacked-card table.table thead th {
+  background-color: var(--table-header-bg) !important;
+  color: var(--color-primary) !important;
+  padding: 10px 16px;
+  font-weight: 700;
+  border: none !important;
+  border-bottom: 2px solid var(--color-primary) !important;
+  border-right: 1px solid var(--color-border) !important;
+  text-align: left;
+}
+article .content table thead th:last-child,
+.stacked-card table.table thead th:last-child {
+  border-right: none !important;
+}
+
+/* Body cells */
+article .content table tbody td,
+.stacked-card table.table tbody td {
+  padding: 9px 16px;
+  border: none;
+  border-top: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  color: var(--color-text);
+  background-color: var(--color-card-bg);
+}
+article .content table tbody td:last-child,
+.stacked-card table.table tbody td:last-child {
+  border-right: none;
+}
+
+/* Alternating rows */
+article .content table tbody tr:nth-child(even) td,
+.stacked-card table.table tbody tr:nth-child(even) td {
+  background-color: var(--color-background);
+}
+
+/* Hover */
+article .content table tbody tr:hover td,
+.stacked-card table.table tbody tr:hover td {
+  background-color: rgba(0, 59, 130, 0.14);
+}
+
 /* Styling for sortable table headers with Font Awesome icons */
 th {
   cursor: pointer;

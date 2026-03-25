@@ -1,6 +1,7 @@
 (function () {
     var content = document.querySelector('article .content');
     if (!content) return;
+
     var headings = content.querySelectorAll('h2, h3');
     if (headings.length < 3) return;
 
