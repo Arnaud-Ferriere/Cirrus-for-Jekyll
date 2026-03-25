@@ -55,16 +55,24 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "TechArticle",
       "headline": "{{ page.title | escape }}",
       "description": "{{ page_desc | escape }}",
       "datePublished": "{{ page.date | date_to_xmlschema }}",
       "url": "{{ page.url | absolute_url }}",
+      "inLanguage": "{{ site.lang | default: 'en' }}",
       "author": {
         "@type": "Person",
         "name": "{{ site.data.author.name }}",
+        "url": "{{ site.url }}",
+        "jobTitle": "{{ site.data.author.role }}"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "{{ site.data.author.name }}",
         "url": "{{ site.url }}"
-      }{% if page.image %},
+      }{% if page.tags and page.tags.size > 0 %},
+      "keywords": "{{ page.tags | join: ', ' }}"{% endif %}{% if page.image %},
       "image": "{{ page.image | absolute_url }}"{% endif %}
     }
     </script>

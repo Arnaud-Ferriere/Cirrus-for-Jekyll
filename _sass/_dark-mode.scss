@@ -142,6 +142,11 @@
     color: #ffd75e;
   }
 
+  /* Bannière article */
+  .article-banner {
+    background-color: rgba(168, 196, 232, 0.08);
+  }
+
   /* TOC */
   .toc-container {
     background: rgba(168, 196, 232, 0.08);
@@ -327,6 +332,11 @@
       background-color: #3d2e00;
       border-left-color: #ffc107;
       color: #ffd75e;
+    }
+
+    /* Bannière article */
+    .article-banner {
+      background-color: rgba(168, 196, 232, 0.08);
     }
 
     .toc-container {
