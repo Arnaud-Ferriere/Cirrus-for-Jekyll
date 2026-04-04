@@ -17,6 +17,7 @@ Built with Bootstrap 5, Font Awesome 6, and full GitHub Pages compatibility.
 - [Translate the UI](#translate-the-ui)
 - [Dark mode](#dark-mode)
 - [Customize the look](#customize-the-look)
+- [Mermaid diagrams](#mermaid-diagrams)
 - [Adding comments (optional)](#adding-comments-optional)
 - [GitHub Pages — authorized use](#github-pages--authorized-use)
 - [Local development](#local-development)
@@ -35,6 +36,7 @@ Built with Bootstrap 5, Font Awesome 6, and full GitHub Pages compatibility.
 - **Accessible** — keyboard navigation, ARIA labels, skip link, screen-reader support, reduced motion
 - **SEO** — Open Graph, Twitter Card, JSON-LD structured data, sitemap
 - **Customizable** — edit `custom.css` to change colors and fonts without touching the core stylesheet
+- **Mermaid diagrams** — flowcharts, sequence diagrams, Gantt charts rendered client-side, synced with dark mode
 - **Modular SCSS** — clean architecture under `_sass/`, easy to extend
 
 ---
@@ -228,6 +230,39 @@ The stylesheet is split into modular partials under `_sass/`:
 | *...and more* | Buttons, grid, footer, code, TOC, etc. |
 
 The entry point is `assets/css/main.scss`. Jekyll compiles it automatically — no build tools needed.
+
+---
+
+## Mermaid diagrams
+
+You can embed [Mermaid](https://mermaid.js.org/) diagrams directly in your articles. The diagram theme automatically syncs with the site's dark/light mode.
+
+### 1. Enable Mermaid for a post
+
+Add `mermaid: true` to the post front matter:
+
+```yaml
+---
+layout: post
+title: "My article"
+mermaid: true
+---
+```
+
+### 2. Write a diagram
+
+Use a fenced code block with the `mermaid` language identifier:
+
+````markdown
+```mermaid
+flowchart LR
+    A[Start] --> B{Decision}
+    B -->|Yes| C[Do something]
+    B -->|No| D[Do something else]
+```
+````
+
+Mermaid is only loaded on pages that need it — no impact on pages without diagrams.
 
 ---
 
