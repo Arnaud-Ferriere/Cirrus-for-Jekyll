@@ -33,4 +33,16 @@ new MutationObserver(function() {
   });
   mermaid.run();
 }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+async function reRenderMermaid(theme) {
+  mermaid.initialize({ startOnLoad: false, theme: theme });
+  document.querySelectorAll('.mermaid[data-processed]').forEach(function(el) {
+    el.textContent = el.dataset.src;
+    el.removeAttribute('data-processed');
+  });
+  await mermaid.run();
+}
+
+window.mermaidReRender = reRenderMermaid;
+window.mermaidGetTheme = getTheme;
 </script>
