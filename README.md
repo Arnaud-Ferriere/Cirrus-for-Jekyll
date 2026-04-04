@@ -17,6 +17,7 @@ Built with Bootstrap 5, Font Awesome 6, and full GitHub Pages compatibility.
 - [Translate the UI](#translate-the-ui)
 - [Dark mode](#dark-mode)
 - [Customize the look](#customize-the-look)
+- [Obsidian callouts](#obsidian-callouts)
 - [Mermaid diagrams](#mermaid-diagrams)
 - [Adding comments (optional)](#adding-comments-optional)
 - [GitHub Pages — authorized use](#github-pages--authorized-use)
@@ -36,7 +37,9 @@ Built with Bootstrap 5, Font Awesome 6, and full GitHub Pages compatibility.
 - **Accessible** — keyboard navigation, ARIA labels, skip link, screen-reader support, reduced motion
 - **SEO** — Open Graph, Twitter Card, JSON-LD structured data, sitemap
 - **Customizable** — edit `custom.css` to change colors and fonts without touching the core stylesheet
-- **Mermaid diagrams** — flowcharts, sequence diagrams, Gantt charts rendered client-side, synced with dark mode
+- **Mermaid diagrams** — flowcharts, sequence diagrams, Gantt charts rendered client-side, synced with dark mode, with fullscreen pan/zoom modal
+- **Obsidian callouts** — `> [!NOTE]`, `> [!WARNING]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!CAUTION]` rendered as styled callout blocks
+- **Smart links** — bare URLs auto-linked, external links get a target="_blank" icon automatically
 - **Modular SCSS** — clean architecture under `_sass/`, easy to extend
 
 ---
@@ -233,6 +236,31 @@ The entry point is `assets/css/main.scss`. Jekyll compiles it automatically — 
 
 ---
 
+## Obsidian callouts
+
+You can use Obsidian-style callout blocks in your articles. They are automatically converted to styled, colour-coded boxes:
+
+```markdown
+> [!NOTE]
+> Useful information for the reader.
+
+> [!TIP]
+> A helpful tip or best practice.
+
+> [!WARNING]
+> Something to be careful about.
+
+> [!IMPORTANT]
+> Key information not to miss.
+
+> [!CAUTION]
+> A potential risk or danger.
+```
+
+No configuration needed — works out of the box on any post.
+
+---
+
 ## Mermaid diagrams
 
 You can embed [Mermaid](https://mermaid.js.org/) diagrams directly in your articles. The diagram theme automatically syncs with the site's dark/light mode.
@@ -263,6 +291,8 @@ flowchart LR
 ````
 
 Mermaid is only loaded on pages that need it — no impact on pages without diagrams.
+
+An **expand button** appears on hover over each diagram, opening a fullscreen modal with mouse wheel zoom, click-drag pan, and touch pinch support.
 
 ---
 
