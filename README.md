@@ -14,6 +14,9 @@ Built with Bootstrap 5, Font Awesome 6, and full GitHub Pages compatibility.
 - [Deploy to GitHub Pages](#deploy-to-github-pages-no-server-needed)
 - [Configure your site](#configure-your-site)
 - [Writing articles](#writing-articles)
+  - [Front matter reference](#article-front-matter-reference)
+  - [Images](#images-in-the-body)
+  - [Smart links](#smart-links)
 - [Translate the UI](#translate-the-ui)
 - [Dark mode](#dark-mode)
 - [Customize the look](#customize-the-look)
@@ -127,13 +130,17 @@ You can write articles with any tool you like:
 layout: post
 title: "Your article title"
 date: 2025-01-15
+last_modified_at: 2025-06-01    # optional — shows an "Updated:" date in the header
 excerpt: "Short summary shown on cards and in search."
 tags: [Azure, PowerShell]
 image: /assets/my-image.png       # card thumbnail + article header
 banner: /assets/my-banner.jpg     # full-width header (overrides image)
+mermaid: true                     # optional — enables Mermaid diagram rendering
 # placeholder: true               # uncomment to show an "AI-generated" disclaimer
 ---
 ```
+
+A ready-to-use template with all properties documented is available at `Templates/post-template.md`.
 
 ### Images in the body
 
@@ -143,6 +150,18 @@ banner: /assets/my-banner.jpg     # full-width header (overrides image)
 ![Description](/assets/image-name.png){: .img-right}    ← float right
 ![Description](/assets/image-name.png){: .img-full}     ← full width
 ```
+
+Click any image in an article to open it fullscreen.
+
+### Smart links
+
+Bare URLs in article content are automatically converted to clickable links. External links automatically get a `target="_blank"` attribute and a small icon — no Markdown needed:
+
+```markdown
+Visit https://example.com for more info.
+```
+
+Renders as a clickable link with an external icon, without any extra syntax.
 
 ### Recommended workflow with Obsidian + Obsidian Git plugin
 
