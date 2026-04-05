@@ -23,6 +23,7 @@ pagination_older: "Older"
 
 # Post / Article
 post_published: "Published:"
+post_updated: "Updated:"
 post_min_read: "min read"
 post_pdf: "PDF"
 post_save_pdf: "Save as PDF"
