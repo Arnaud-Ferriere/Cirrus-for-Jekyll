@@ -151,6 +151,13 @@ A ready-to-use template with all properties documented is available at `Template
 ![Description](/assets/image-name.png){: .img-full}     ← full width
 ```
 
+To place two images side by side, use `.img-left` and `.img-right` on consecutive images:
+
+```markdown
+![Left image](/assets/image-a.png){: .img-left}
+![Right image](/assets/image-b.png){: .img-right}
+```
+
 Click any image in an article to open it fullscreen.
 
 ### Smart links
@@ -167,15 +174,17 @@ Renders as a clickable link with an external icon, without any extra syntax.
 
 > Write in Obsidian, publish with two clicks — no terminal needed.
 
-1. **Create a draft** — save a new note to the `_drafts/` folder. Jekyll won't publish it yet.
+1. **Set up the template** — in Obsidian settings, go to **Templates → Template folder location** and set it to `Templates`. The file `Templates/post-template.md` will then be available as a template in Obsidian.
 
-2. **Write your article** in Obsidian. Add images to `assets/`.
+2. **Create a draft** — create a new note in the `_drafts/` folder. Open the command palette (`Ctrl+P`) → **Templates: Insert template** → select `post-template`. Fill in the front matter.
 
-3. **When ready to publish** — rename the file to `YYYY-MM-DD-your-title.md` and move it to `_posts/`.
+3. **Write your article** in Obsidian. Add images to `assets/`.
 
-4. **Push to GitHub** — open the Obsidian Git panel (left sidebar) → **Stage all** → **Commit** → **Push**.
+4. **When ready to publish** — rename the file to `YYYY-MM-DD-your-title.md` and move it to `_posts/`.
 
-5. **Done** — GitHub Pages rebuilds your site automatically within ~1 minute.
+5. **Push to GitHub** — open the Obsidian Git panel (left sidebar) → **Stage all** → **Commit** → **Push**.
+
+6. **Done** — GitHub Pages rebuilds your site automatically within ~1 minute.
 
 ---
 
@@ -369,20 +378,51 @@ GitHub Pages is **not intended** for commercial use (online stores, SaaS, etc.).
 
 ## Local development
 
+### Requirements
+
+- [Ruby](https://www.ruby-lang.org/en/downloads/) (≥ 3.1 recommended — use [RubyInstaller](https://rubyinstaller.org/) on Windows)
+- On Windows: run `ridk install` after Ruby setup to install the MSYS2 build toolchain (required for native gem extensions)
+- [Bundler](https://bundler.io/) — install with `gem install bundler`
+
+### Setup
+
 ```bash
 bundle install
-bundle exec jekyll serve --drafts   # --drafts also shows _drafts/ posts
 ```
 
-Requires Ruby and Bundler. The `Gemfile` uses `github-pages` for full GitHub Pages compatibility.
+This installs the `github-pages` gem and all its dependencies, mirroring the exact build environment used by GitHub Pages.
+
+### Run the dev server
+
+```bash
+bundle exec jekyll serve
+```
+
+Your site will be available at `http://localhost:4000`. Jekyll watches for file changes and rebuilds automatically.
+
+Useful flags:
+
+```bash
+bundle exec jekyll serve --drafts        # also render posts from _drafts/
+bundle exec jekyll serve --port 4001     # use a different port
+bundle exec jekyll serve --livereload    # auto-refresh the browser on change
+```
+
+> **Note:** Changes to `_config.yml` require a server restart to take effect.
 
 ---
 
 ## License
 
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — free to use, modify, and redistribute for any purpose, **including commercially**, as long as you credit the original author:
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — free to use, modify, and redistribute for any purpose, as long as you credit the original author.
 
-> **Arnaud FERRIERE** — [surlesnuages.fr](https://surlesnuages.fr) — [github.com/Arnaud-Ferriere/Cirrus-for-Jekyll](https://github.com/Arnaud-Ferriere/Cirrus-for-Jekyll)
+> **Note:** While CC BY 4.0 permits commercial use on self-hosted deployments, **GitHub Pages does not allow commercial use** of sites hosted on its free tier. See the [GitHub Pages authorized use](#github-pages--authorized-use) section for details.
+
+The footer attribution already included in the template satisfies the licence requirement:
+
+> Based on [Cirrus for Jekyll](https://github.com/Arnaud-Ferriere/Cirrus-for-Jekyll) by Arnaud FERRIERE — [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+Please keep this footer line as-is.
 
 ---
 
