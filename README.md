@@ -367,7 +367,7 @@ That's it — comments will appear automatically on each article page.
 
 This template is designed for **personal or portfolio sites** and complies with [GitHub Pages Terms of Service](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#prohibited-uses).
 
-GitHub Pages free hosting is subject to the following limits:
+GitHub Pages free hosting is subject to the following [usage limits](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits#usage-limits):
 - Repositories must be under **1 GB**
 - Sites must not exceed **100 GB of bandwidth per month**
 - No more than **10 builds per hour**
