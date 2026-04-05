@@ -23,7 +23,7 @@ FRONT MATTER REFERENCE:
   tags             → e.g. [Azure, PowerShell, Microsoft 365]
   image            → card thumbnail + article header  e.g. /assets/my-image.png
   banner           → full-width header image (overrides image)  e.g. /assets/my-banner.jpg
-  difficulty       → article difficulty: debutant | intermediaire | avance | expert
+  difficulty       → article difficulty: beginner | intermediate | advanced | expert
   series           → series name  e.g. "Mastering Power Automate"
   series_part      → part number  e.g. 1
   mermaid: true    → enable Mermaid diagram rendering on this post

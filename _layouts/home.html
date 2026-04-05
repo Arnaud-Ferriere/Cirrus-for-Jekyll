@@ -30,9 +30,9 @@ layout: default
                     </h5>
                     {% if post.difficulty %}
                     {% case post.difficulty %}
-                      {% when "debutant" %}{% assign diff_icon = "☀️" %}{% assign diff_label = site.data.ui.diff_debutant %}
-                      {% when "intermediaire" %}{% assign diff_icon = "☁️" %}{% assign diff_label = site.data.ui.diff_intermediaire %}
-                      {% when "avance" %}{% assign diff_icon = "🌧️" %}{% assign diff_label = site.data.ui.diff_avance %}
+                      {% when "beginner" %}{% assign diff_icon = "☀️" %}{% assign diff_label = site.data.ui.diff_beginner %}
+                      {% when "intermediate" %}{% assign diff_icon = "☁️" %}{% assign diff_label = site.data.ui.diff_intermediate %}
+                      {% when "advanced" %}{% assign diff_icon = "🌧️" %}{% assign diff_label = site.data.ui.diff_advanced %}
                       {% when "expert" %}{% assign diff_icon = "🌪️" %}{% assign diff_label = site.data.ui.diff_expert %}
                     {% endcase %}
                     <span class="difficulty-badge difficulty-{{ post.difficulty }} mb-2 d-inline-block">{{ diff_icon }} {{ diff_label }}</span>

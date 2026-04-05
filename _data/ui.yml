@@ -22,9 +22,9 @@ pagination_newer: "Newer"
 pagination_older: "Older"
 
 # Difficulty levels
-diff_debutant: "Beginner"
-diff_intermediaire: "Intermediate"
-diff_avance: "Advanced"
+diff_beginner: "Beginner"
+diff_intermediate: "Intermediate"
+diff_advanced: "Advanced"
 diff_expert: "Expert"
 
 # Series
