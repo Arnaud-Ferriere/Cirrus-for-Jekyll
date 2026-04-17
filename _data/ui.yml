@@ -14,6 +14,7 @@ home_search: "Search articles"
 home_search_placeholder: "Type your search..."
 home_no_articles: "No articles yet. Check back soon!"
 home_no_results: "No articles found."
+home_search_unavailable: "Search unavailable."
 home_published: "Published:"
 home_min: "min"
 

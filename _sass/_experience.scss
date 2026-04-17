@@ -39,11 +39,12 @@
   margin-top: 10px;
 }
 
-.section-content.hidden {
-  height: 0;
+/* Bootstrap collapse handles show/hide — keep overflow visible when open */
+.section-content.collapse:not(.show) {
+  display: none;
 }
 
-.section-content:not(.hidden) {
+.section-content.collapse.show {
   height: auto;
 }
 
@@ -89,7 +90,8 @@
   margin-bottom: 10px;
 }
 
-.poste-logo {
+.poste-logo,
+.mission-logo {
   width: 80px;
   height: 80px;
   object-fit: contain;
@@ -122,13 +124,6 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 5px;
-}
-
-.mission-logo {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-right: 10px;
 }
 
 .mission-title {

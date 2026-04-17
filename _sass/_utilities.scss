@@ -49,8 +49,23 @@
 #back-to-top:hover {
   background-color: var(--color-secondary);
 }
+#back-to-top:focus-visible {
+  background-color: var(--color-secondary);
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
 
 /* Back to top adjustments on mobile */
 @media (max-width: 767px) {
   #back-to-top { bottom: 10px; right: 10px; padding: 10px; z-index: 2; }
+}
+
+/* Reduced motion — respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -21,7 +21,7 @@
   margin-bottom: 20px;
 }
 
-.card-body h4 {
+.card-body h3 {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-primary);
@@ -70,9 +70,12 @@
   padding: 10px;
 }
 
-/* Card images */
+/* Card images — reserve space to avoid CLS before the image loads */
 .card-img-top {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Card titles and text */

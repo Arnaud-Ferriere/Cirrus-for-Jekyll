@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(where bundle:*)",
+      "Bash(xargs grep:*)",
+      "Bash(grep -r \"photo.webp\\\\|your-profile\\\\|your-username\\\\|yourdomain\\\\|example.com\\\\|your.email\\\\|Jane Doe\\\\|Jane DOE\" C:UsersarnfeOneDriveDocumentsVaultsProHomelabReposjekyll-cirrus --include=*.yml --include=*.html --include=*.md --include=*.css)",
+      "Bash(curl -sI \"https://use.fontawesome.com/releases/v6.7.2/css/all.css\")",
+      "Bash(curl -s \"https://use.fontawesome.com/releases/v6.7.2/css/all.css\")",
+      "Bash(openssl dgst:*)",
+      "Bash(openssl base64:*)",
+      "Bash(curl -sI \"https://use.fontawesome.com/releases/v6.7.2/webfonts/fa-solid-900.woff2\")",
+      "Bash(curl -s \"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css\")",
+      "Bash(curl -sI \"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css\")",
+      "Bash(bundle exec:*)",
+      "Bash(gh release:*)",
+      "WebFetch(domain:docs.github.com)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git tag:*)",
+      "Bash(curl -s http://localhost:4001/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4001/)",
+      "Bash(cp /c/Users/arnfe/OneDrive/Documents/Vaults/Pro/Homelab/Repos/CV/assets/fonts/poppins-300.woff2 /c/Users/arnfe/OneDrive/Documents/Vaults/Pro/Homelab/Repos/jekyll-cirrus/assets/fonts/poppins-300.woff2)",
+      "Bash(cp /c/Users/arnfe/OneDrive/Documents/Vaults/Pro/Homelab/Repos/CV/assets/fonts/poppins-500.woff2 /c/Users/arnfe/OneDrive/Documents/Vaults/Pro/Homelab/Repos/jekyll-cirrus/assets/fonts/poppins-500.woff2)",
+      "Bash(cp /c/Users/arnfe/OneDrive/Documents/Vaults/Pro/Homelab/Repos/CV/assets/fonts/poppins-700.woff2 /c/Users/arnfe/OneDrive/Documents/Vaults/Pro/Homelab/Repos/jekyll-cirrus/assets/fonts/poppins-700.woff2)",
+      "Bash(curl -s -o /tmp/home.html -w \"%{http_code}\\\\n\" http://localhost:4001/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4002/)",
+      "Bash(curl -s http://localhost:4002/)",
+      "Bash(curl -s -o /dev/null -w \"articles: %{http_code}\\\\n\" http://localhost:4002/articles/)",
+      "Bash(curl -s -o /dev/null -w \"2024/01/01: %{http_code}\\\\n\" http://localhost:4002/articles/2024/01/01/welcome.html)",
+      "Bash(curl -s -o /dev/null -w \"sassfile: %{http_code}\\\\n\" http://localhost:4002/assets/css/main.css)",
+      "Bash(curl -s http://localhost:4002/articles/)",
+      "Bash(curl -s http://localhost:4002/assets/css/main.css)",
+      "Bash(curl -s -L -o /dev/null -w \"%{http_code} %{url_effective}\\\\n\" http://localhost:4002/articles/welcome/)",
+      "Bash(curl -s http://localhost:4002/sitemap.xml)",
+      "Bash(curl -s http://localhost:4002/articles/welcome/)"
+    ]
+  }
+}
