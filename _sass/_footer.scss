@@ -1,20 +1,27 @@
 /* Footer */
 .cloud-footer {
-  background-image: url('/assets/clouds-footer.svg');
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-color: var(--color-background);
-  padding-top: 15vw;
+  background-color: var(--color-primary);
   text-align: center;
-  color: var(--color-primary);
+  color: #fff;
   margin: 0;
+  padding: 0;
 }
 
-.footer-wave { display: none; }
+.footer-wave {
+  width: 100%;
+  height: 5.5vw;
+  display: block;
+  background-color: var(--color-background);
+  -webkit-mask-image: url('/assets/clouds-footer.svg');
+  mask-image: url('/assets/clouds-footer.svg');
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
 
 .footer-content {
-  padding: 0.5rem 1rem 1.25rem;
+  padding: 0.75rem 1rem 1.25rem;
 }
 
 .cloud-footer p {
@@ -24,13 +31,13 @@
 }
 
 .cloud-footer a {
-  color: var(--color-secondary);
+  color: #a8c4e8;
   text-decoration: none;
   font-weight: bold;
 }
 
 .cloud-footer a:hover {
-  color: var(--color-primary);
+  color: #fff;
   text-decoration: underline;
 }
 
