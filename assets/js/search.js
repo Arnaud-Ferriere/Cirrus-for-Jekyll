@@ -5,6 +5,7 @@
     if (!input || !results) return;
 
     var posts = null;
+    var loading = false;
 
     function render(found) {
         if (found.length === 0) {
@@ -36,10 +37,32 @@
         render(found);
     }
 
+    function ensureLoaded() {
+        if (posts || loading) return;
+        loading = true;
+        fetch(cfg.searchUrl || '/search.json')
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                posts = data;
+                loading = false;
+                // If the user already typed while loading, run the search now
+                if (input.value.length >= 2) search(input.value);
+            })
+            .catch(function () {
+                loading = false;
+                input.disabled = true;
+                input.placeholder = cfg.unavailable || 'Search unavailable.';
+            });
+    }
+
+    input.addEventListener('focus', ensureLoaded);
     input.addEventListener('input', function () { search(this.value); });
 
-    fetch(cfg.searchUrl || '/search.json')
-        .then(function (r) { return r.json(); })
-        .then(function (data) { posts = data; })
-        .catch(function () { /* search silently unavailable */ });
+    // Support ?q= URL parameter (for SearchAction schema)
+    var params = new URLSearchParams(window.location.search);
+    var q = params.get('q');
+    if (q) {
+        input.value = q;
+        ensureLoaded();
+    }
 })();

@@ -68,7 +68,21 @@ about_interest_image: "Interest image"
 articles_title: "Articles"
 articles_chronological: "Chronological"
 articles_by_tags: "By tags"
+articles_by_series: "By series"
 articles_no_articles: "No articles published yet."
+
+# Series
+series_view_series: "View series"
+series_articles_label: "Series articles"
+series_no_articles: "No articles published in this series yet. Check back soon!"
+
+# Post share bar
+post_share_prompt: "Found this useful? Share:"
+post_share_linkedin: "Share on LinkedIn"
+post_share_bluesky: "Share on Bluesky"
+post_share_x: "Share on X (Twitter)"
+post_share_copy: "Copy link"
+post_share_copied: "Copied!"
 
 # 404 page
 error_404_title: "404"
@@ -83,6 +97,8 @@ footer_by: "by"
 
 # Accessibility
 a11y_skip: "Skip to main content"
+a11y_breadcrumb: "Breadcrumb"
+a11y_scrollable_table: "Scrollable table"
 a11y_back_to_top: "Back to top"
 a11y_toggle_dark: "Toggle dark mode"
 a11y_toggle_nav: "Toggle navigation"

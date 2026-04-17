@@ -53,13 +53,13 @@ layout: default
         </div>
         {% endif %}
 
-        <!-- Table des matieres (auto-generated via JS, shown only if 3+ headings) -->
-        <div id="toc-wrapper" style="display: none;">
+        <!-- Table of contents (auto-generated via JS, shown only if 3+ headings) -->
+        <nav id="toc-wrapper" aria-label="{{ site.data.ui.post_toc }}" style="display: none;">
             <details class="toc-container" open>
                 <summary>{{ site.data.ui.post_toc }}</summary>
                 <ol class="toc-list" id="toc-list"></ol>
             </details>
-        </div>
+        </nav>
 
         <section class="content">
             {{ content }}
@@ -82,6 +82,25 @@ layout: default
         </div>
         {% endif %}
         {% endif %}
+
+        <!-- Share buttons -->
+        {% assign share_url = page.url | absolute_url %}
+        {% assign share_title = page.title | uri_escape %}
+        <div class="post-share">
+            <span class="post-share-label"><i class="fas fa-share-nodes" aria-hidden="true"></i> {{ site.data.ui.post_share_prompt }}</span>
+            <a class="post-share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url={{ share_url | uri_escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ site.data.ui.post_share_linkedin }}">
+                <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+            </a>
+            <a class="post-share-btn" href="https://bsky.app/intent/compose?text={{ share_title }}%20{{ share_url | uri_escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ site.data.ui.post_share_bluesky }}">
+                <i class="fas fa-cloud" aria-hidden="true"></i> Bluesky
+            </a>
+            <a class="post-share-btn" href="https://twitter.com/intent/tweet?text={{ share_title }}&url={{ share_url | uri_escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ site.data.ui.post_share_x }}">
+                <i class="fab fa-x-twitter" aria-hidden="true"></i> X
+            </a>
+            <button type="button" class="post-share-btn post-share-copy" data-url="{{ share_url }}" data-copied-label="{{ site.data.ui.post_share_copied }}">
+                <i class="fas fa-link" aria-hidden="true"></i> <span class="post-share-copy-label">{{ site.data.ui.post_share_copy }}</span>
+            </button>
+        </div>
 
         {% if page.tags.size > 0 %}
         <div class="post-tags">
@@ -151,5 +170,5 @@ layout: default
     </div>
 </div>
 
-{% if page.mermaid %}{% include mermaid.html %}{% endif %}
+{% include mermaid.html %}
 <script src="{{ '/assets/js/post.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
