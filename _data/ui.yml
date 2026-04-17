@@ -6,7 +6,6 @@
 nav_home: "Home"
 nav_articles: "Articles"
 nav_about: "About"
-nav_theme_toggle: "Theme"
 
 # Home page
 home_recent: "Recent Articles"
@@ -30,7 +29,6 @@ diff_expert: "Expert"
 diff_aria_prefix: "Difficulty:"
 
 # Series
-post_series: "Series"
 post_series_part: "Part"
 post_series_on: "of"
 post_series_intro: "This article is part of a series"
