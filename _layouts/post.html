@@ -123,7 +123,7 @@ layout: default
         {% if page.tags.size > 0 %}
         <div class="post-tags">
             {% for tag in page.tags %}
-            <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag-badge">
+            <a href="{{ '/articles/' | relative_url }}#{{ tag | slugify }}" class="tag-badge">
                 <i class="fas fa-tag" aria-hidden="true"></i> {{ tag }}
             </a>
             {% endfor %}

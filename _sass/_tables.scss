@@ -1,36 +1,35 @@
 /* ─────────────────────────────────────────────────────────────
    TABLES — Card aesthetic
-   Articles  : article .content table (CSS-only, no JS wrapper)
+   Articles  : post.js wraps tables in .table-wrapper > .table-scroll
    About     : .stacked-card table.table override
    ───────────────────────────────────────────────────────────── */
 
-/* Base — scroll + rounded corners without a wrapper div.
-   display:block on the table enables overflow-x:auto (scroll on mobile).
-   thead/tbody are reset to display:table + width:100% so cells fill the full width. */
-article .content table,
-.stacked-card table.table {
-  display: block;
-  overflow-x: auto;
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+/* Wrapper in articles: outer = rounded corners + shadow,
+   inner = horizontal scroll without breaking the corners */
+.content .table-wrapper {
+  overflow: hidden;
   border-radius: var(--border-radius);
   border: 1px solid var(--color-border);
   box-shadow: var(--box-shadow-light);
   margin: 1.5rem 0;
+}
+.content .table-scroll {
+  overflow-x: auto;
+}
+
+/* Shared base */
+.content .table-wrapper table,
+.stacked-card table.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
   font-size: 0.92em;
 }
 
-article .content table thead,
-article .content table tbody,
-.stacked-card table.table thead,
-.stacked-card table.table tbody {
-  display: table;
-  width: 100%;
-}
-
-/* Header */
-article .content table thead th,
+/* Header: soft tint of --color-primary on card background,
+   text --color-primary like site headings,
+   bottom separator to anchor the header row */
+.content .table-wrapper table thead th,
 .stacked-card table.table thead th {
   background-color: var(--table-header-bg) !important;
   color: var(--color-primary) !important;
@@ -41,13 +40,13 @@ article .content table thead th,
   border-right: 1px solid var(--color-border) !important;
   text-align: left;
 }
-article .content table thead th:last-child,
+.content .table-wrapper table thead th:last-child,
 .stacked-card table.table thead th:last-child {
   border-right: none !important;
 }
 
 /* Body cells */
-article .content table tbody td,
+.content .table-wrapper table tbody td,
 .stacked-card table.table tbody td {
   padding: 9px 16px;
   border: none;
@@ -56,24 +55,24 @@ article .content table tbody td,
   color: var(--color-text);
   background-color: var(--color-card-bg);
 }
-article .content table tbody td:last-child,
+.content .table-wrapper table tbody td:last-child,
 .stacked-card table.table tbody td:last-child {
   border-right: none;
 }
 
 /* Alternating rows */
-article .content table tbody tr:nth-child(even) td,
+.content .table-wrapper table tbody tr:nth-child(even) td,
 .stacked-card table.table tbody tr:nth-child(even) td {
   background-color: var(--color-background);
 }
 
 /* Hover */
-article .content table tbody tr:hover td,
+.content .table-wrapper table tbody tr:hover td,
 .stacked-card table.table tbody tr:hover td {
   background-color: rgba(0, 59, 130, 0.14);
 }
 
-/* Styling for sortable table headers with Font Awesome icons */
+/* Styling for sortable table headers with Font Awesome icons (about page) */
 th {
   cursor: pointer;
   position: relative;
