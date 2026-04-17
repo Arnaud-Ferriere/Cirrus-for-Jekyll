@@ -4,7 +4,7 @@ A clean, minimal Jekyll template for a **CV + blog** site, designed to be deploy
 
 All personal content is configured through YAML files — no template editing needed.
 
-Built with Bootstrap 5, Font Awesome 6, and full GitHub Pages compatibility.
+Built with Bootstrap 5, Font Awesome 6, self-hosted Poppins, and full GitHub Pages compatibility.
 
 **Live demo:** [surlesnuages.fr](https://surlesnuages.fr)
 
@@ -17,11 +17,14 @@ Built with Bootstrap 5, Font Awesome 6, and full GitHub Pages compatibility.
   - [Front matter reference](#article-front-matter-reference)
   - [Images](#images-in-the-body)
   - [Smart links](#smart-links)
+  - [Difficulty badges](#difficulty-badges)
+- [Article series](#article-series)
 - [Translate the UI](#translate-the-ui)
 - [Dark mode](#dark-mode)
 - [Customize the look](#customize-the-look)
 - [Obsidian callouts](#obsidian-callouts)
 - [Mermaid diagrams](#mermaid-diagrams)
+- [Share buttons](#share-buttons)
 - [Adding comments (optional)](#adding-comments-optional)
 - [GitHub Pages — authorized use](#github-pages--authorized-use)
 - [Local development](#local-development)
@@ -32,18 +35,27 @@ Built with Bootstrap 5, Font Awesome 6, and full GitHub Pages compatibility.
 ## Features
 
 - **CV page** — skills, work experience, certifications, languages, interests
-- **Blog** — article cards with search, tag cloud, chronological & tag views, RSS feed, pagination
+- **Blog** — article cards with search, tag cloud, chronological / tag / series views, RSS feed, pagination
+- **Article series** — dedicated `/series/<slug>/` pages with ordered article list, SEO breadcrumbs, series block on every article
 - **Fully data-driven** — all personal content lives in `_data/` YAML files
-- **Dark mode** — automatic (follows OS preference) with manual toggle, persists in localStorage
+- **Dark mode** — automatic (follows OS preference) with manual toggle, persists in localStorage, safe in private browsing
 - **Translatable** — all UI strings in `_data/ui.yml`, translate the entire site by editing one file
 - **Print-friendly** — optimized CV layout for PDF export (always prints in light mode)
-- **Accessible** — keyboard navigation, ARIA labels, skip link, screen-reader support, reduced motion
-- **SEO** — Open Graph, Twitter Card, JSON-LD structured data, sitemap
+- **Accessible** — keyboard navigation, ARIA labels, skip link, screen-reader support, `prefers-reduced-motion`, focus-visible outlines, scrollable table regions
+- **SEO** — Open Graph (with `article:modified_time` and `article:tag`), Twitter Card, JSON-LD structured data (Article, WebSite with SearchAction, BreadcrumbList, ItemList for series), sitemap
 - **Customizable** — edit `custom.css` to change colors and fonts without touching the core stylesheet
-- **Mermaid diagrams** — flowcharts, sequence diagrams, Gantt charts rendered client-side, synced with dark mode, with fullscreen pan/zoom modal
+- **Mermaid diagrams** — flowcharts, sequence diagrams, Gantt charts, auto-detected (no `mermaid: true` needed), synced with dark mode, with fullscreen pan/zoom modal
 - **Obsidian callouts** — `> [!NOTE]`, `> [!WARNING]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!CAUTION]` rendered as styled callout blocks
-- **Smart links** — bare URLs auto-linked, external links get a target="_blank" icon automatically
-- **Modular SCSS** — clean architecture under `_sass/`, easy to extend
+- **Smart links** — bare URLs auto-linked, external links get a `target="_blank"` icon and sr-only "opens in a new window" text automatically
+- **Social share bar** — LinkedIn, Bluesky, X, copy-link buttons on every article
+- **Code blocks** — syntax highlighting with copy-to-clipboard button on hover
+- **Table of contents** — auto-generated per article (inline + floating pill with drawer for long reads)
+- **Collapsible sections** — H2 headings can be folded/expanded via Bootstrap collapse
+- **Performance** — self-hosted Poppins (no Google Fonts cascade), preload hints for LCP banner, Sass compression, lazy loading, `fetchpriority="high"` on above-the-fold images, deferred non-critical JS, search index fetched only on focus
+- **Privacy** — no third-party CDN for fonts, email obfuscation via data attributes, anti-crawler helper
+- **Keyboard shortcut** — press `/` anywhere to focus the search input
+- **Difficulty badges** — optional article difficulty level shown as a weather-themed badge
+- **Modular SCSS** — clean architecture under `_sass/` with a shared `badge-style` mixin
 
 ---
 
@@ -92,6 +104,8 @@ bio: >-
   Write your bio here...
 ```
 
+> The email is **never** rendered as plain text in the HTML — parts are stored in `data-email-*` attributes and reassembled client-side by `shared.js`, making it unusable to scrapers.
+
 ### 5. Fill in your CV data
 
 Edit the files in `_data/`:
@@ -135,7 +149,9 @@ excerpt: "Short summary shown on cards and in search."
 tags: [Azure, PowerShell]
 image: /assets/my-image.png       # card thumbnail + article header
 banner: /assets/my-banner.jpg     # full-width header (overrides image)
-mermaid: true                     # optional — enables Mermaid diagram rendering
+difficulty: beginner              # optional — beginner | intermediate | advanced | expert
+series: "My Series Name"          # optional — group articles in a series
+series_part: 1                    # optional — position in the series
 # placeholder: true               # uncomment to show an "AI-generated" disclaimer
 ---
 ```
@@ -162,13 +178,26 @@ Click any image in an article to open it fullscreen.
 
 ### Smart links
 
-Bare URLs in article content are automatically converted to clickable links. External links automatically get a `target="_blank"` attribute and a small icon — no Markdown needed:
+Bare URLs in article content are automatically converted to clickable links. External links automatically get a `target="_blank"` attribute, a small icon, and screen-reader text ("(opens in a new window)") — no Markdown needed:
 
 ```markdown
 Visit https://example.com for more info.
 ```
 
 Renders as a clickable link with an external icon, without any extra syntax.
+
+### Difficulty badges
+
+Set `difficulty:` in front matter to display a weather-themed badge in the article header and on cards:
+
+| Value | Icon | Label |
+|---|---|---|
+| `beginner` | ☀️ | Beginner |
+| `intermediate` | ☁️ | Intermediate |
+| `advanced` | 🌧️ | Advanced |
+| `expert` | 🌪️ | Expert |
+
+The displayed labels are translatable via `_data/ui.yml` (keys `diff_beginner`, `diff_intermediate`, `diff_advanced`, `diff_expert`). The front matter values stay as-is.
 
 ### Recommended workflow with Obsidian + Obsidian Git plugin
 
@@ -188,6 +217,44 @@ Renders as a clickable link with an external icon, without any extra syntax.
 
 ---
 
+## Article series
+
+Group related articles into a series with an ordered list, a shared description, and a dedicated page at `/series/<slug>/`.
+
+### 1. Create a series stub
+
+Add a file in `_series/my-series.md`:
+
+```yaml
+---
+series_name: "my-series"                # must match the `series:` field on posts
+title: "Mastering Power Automate"       # displayed title (defaults to series_name)
+description: "A 5-part series covering…" # optional — shown on the series page and cards
+expected_count: 5                       # optional — enables "3/5 articles" progress counter
+---
+```
+
+### 2. Tag your posts
+
+On each post in the series, add:
+
+```yaml
+series: "my-series"
+series_part: 1
+```
+
+The posts will then show:
+- A **series block** at the bottom of each article, listing all parts with the current one highlighted
+- A **4-level breadcrumb** in JSON-LD (Home > Articles > Series > Post)
+- A card in the **"By series"** view on the `/articles/` page
+- A dedicated **series page** at `/series/my-series/` listing all articles in order
+
+### 3. Drafts (local only)
+
+For series you haven't published yet, create the stub in `_series_drafts/` instead of `_series/`. Jekyll builds them locally with `--drafts` but they don't appear in production.
+
+---
+
 ## Translate the UI
 
 All user-facing strings are in **`_data/ui.yml`**. To translate the site to another language:
@@ -204,6 +271,7 @@ No template files need to be changed.
 Dark mode works out of the box:
 - **Automatic** — follows the OS/browser `prefers-color-scheme` setting
 - **Manual toggle** — moon/sun icon in the navbar, persisted in `localStorage`
+- **Private browsing safe** — `localStorage` access wrapped in `try/catch`
 - **Print** — always uses the light theme
 
 To customize dark mode colors, add overrides in `custom.css`:
@@ -233,7 +301,7 @@ Available variables:
 | `--font-main` | `'Poppins', sans-serif` | Main font |
 | `--border-radius` | `15px` | Card / button corner radius |
 
-To use a different Google Font, update `--font-main` and add the corresponding `<link>` in `_layouts/default.html`.
+To use a different font, replace the files in `assets/fonts/` and adjust `_sass/_fonts.scss` accordingly. Poppins is self-hosted (not loaded from Google Fonts) for privacy and performance.
 
 ### Footer wave
 
@@ -249,18 +317,22 @@ The stylesheet is split into modular partials under `_sass/`:
 
 | File | Content |
 |---|---|
+| `_fonts.scss` | Self-hosted Poppins `@font-face` declarations |
 | `_variables.scss` | CSS custom properties (`:root`) |
+| `_mixins.scss` | Reusable mixins (`badge-style` for pill-shaped buttons) |
 | `_base.scss` | html, body, headings, containers |
 | `_navbar.scss` | Navigation bar and hover animation |
 | `_cards.scss` | Cards, stacked cards, certifications |
-| `_tags.scss` | Tag cloud, tag badges, articles view |
-| `_articles.scss` | Article layout, images, blockquotes |
+| `_tags.scss` | Tag cloud, tag badges, articles view, share bar |
+| `_articles.scss` | Article layout, images, blockquotes, series pages |
 | `_experience.scss` | CV sections, missions, interests |
-| `_dark-mode.scss` | Dark theme overrides |
+| `_toc.scss` | Inline TOC + floating pill + drawer |
+| `_code.scss` | Rouge syntax highlighting, Mermaid, copy button |
+| `_dark-mode.scss` | Dark theme overrides (single mixin) |
 | `_print.scss` | Print-optimized styles |
-| *...and more* | Buttons, grid, footer, code, TOC, etc. |
+| *…and more* | Buttons, grid, footer, utilities, etc. |
 
-The entry point is `assets/css/main.scss`. Jekyll compiles it automatically — no build tools needed.
+The entry point is `assets/css/main.scss`. Jekyll compiles it automatically — no build tools needed. Sass compression is enabled in `_config.yml`.
 
 ---
 
@@ -293,19 +365,7 @@ No configuration needed — works out of the box on any post.
 
 You can embed [Mermaid](https://mermaid.js.org/) diagrams directly in your articles. The diagram theme automatically syncs with the site's dark/light mode.
 
-### 1. Enable Mermaid for a post
-
-Add `mermaid: true` to the post front matter:
-
-```yaml
----
-layout: post
-title: "My article"
-mermaid: true
----
-```
-
-### 2. Write a diagram
+### Write a diagram
 
 Use a fenced code block with the `mermaid` language identifier:
 
@@ -318,9 +378,17 @@ flowchart LR
 ```
 ````
 
-Mermaid is only loaded on pages that need it — no impact on pages without diagrams.
+**No front matter flag needed** — Mermaid is auto-detected: the library is only downloaded on pages that actually contain a `mermaid` code block. Pages without diagrams stay fast.
 
 An **expand button** appears on hover over each diagram, opening a fullscreen modal with mouse wheel zoom, click-drag pan, and touch pinch support.
+
+---
+
+## Share buttons
+
+Every article automatically displays a share bar above the tags, with LinkedIn, Bluesky, X, and a **Copy link** button (with a "Copied!" feedback state).
+
+All labels and aria-labels are translatable via `_data/ui.yml` (keys `post_share_prompt`, `post_share_linkedin`, `post_share_bluesky`, `post_share_x`, `post_share_copy`, `post_share_copied`).
 
 ---
 
@@ -403,7 +471,7 @@ Your site will be available at `http://localhost:4000`. Jekyll watches for file 
 Useful flags:
 
 ```bash
-bundle exec jekyll serve --drafts        # also render posts from _drafts/
+bundle exec jekyll serve --drafts        # also render posts from _drafts/ and _series_drafts/
 bundle exec jekyll serve --port 4001     # use a different port
 bundle exec jekyll serve --livereload    # auto-refresh the browser on change
 ```
