@@ -4,7 +4,7 @@ A clean, minimal Jekyll template for a **CV + blog** site, designed to be deploy
 
 All personal content is configured through YAML files — no template editing needed.
 
-Built with Bootstrap 5, Font Awesome 6, self-hosted Poppins, and full GitHub Pages compatibility.
+Built with Bootstrap 5, Font Awesome 6 and Poppins — **all self-hosted** (zero external CDN, full GDPR compatibility) and full GitHub Pages compatibility.
 
 **Live demo:** [surlesnuages.fr](https://surlesnuages.fr)
 
@@ -51,8 +51,8 @@ Built with Bootstrap 5, Font Awesome 6, self-hosted Poppins, and full GitHub Pag
 - **Code blocks** — syntax highlighting with copy-to-clipboard button on hover
 - **Table of contents** — auto-generated per article (inline + floating pill with drawer for long reads)
 - **Collapsible sections** — H2 headings can be folded/expanded via Bootstrap collapse
-- **Performance** — self-hosted Poppins (no Google Fonts cascade), preload hints for LCP banner, Sass compression, lazy loading, `fetchpriority="high"` on above-the-fold images, deferred non-critical JS, search index fetched only on focus
-- **Privacy** — no third-party CDN for fonts, email obfuscation via data attributes, anti-crawler helper
+- **Performance** — Bootstrap, Font Awesome and Poppins all self-hosted (zero external CDN), print CSS split into a separate `media="print"` stylesheet (never blocks first paint), preload hints for LCP banner, Sass compression, lazy loading, `fetchpriority="high"` on above-the-fold images, deferred non-critical JS, search index fetched only on focus
+- **Privacy** — no third-party CDN for fonts, CSS or JS (GDPR-friendly), email obfuscation via data attributes, anti-crawler helper
 - **Keyboard shortcut** — press `/` anywhere to focus the search input
 - **Difficulty badges** — optional article difficulty level shown as a weather-themed badge
 - **Modular SCSS** — clean architecture under `_sass/` with a shared `badge-style` mixin
