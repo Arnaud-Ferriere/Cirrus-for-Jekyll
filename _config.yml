@@ -1,7 +1,7 @@
 title: My Site
 home_title: "Welcome!"
 home_tagline: "Discover my latest articles and more."
-default_image: https://picsum.photos/seed/cirrus-default-card/800/450
+default_image: https://loremflickr.com/800/450/clouds,sky?lock=3
 default_banner: ""
 description: >-
   A short description of your site, used for SEO meta tags.
