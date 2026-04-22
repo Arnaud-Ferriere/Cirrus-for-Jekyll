@@ -1,0 +1,18 @@
+# URLs to skip when checking broken links
+# One regex per line
+
+# Localhost and private IPs (in case you use them as examples in articles)
+^https?://localhost
+^https?://127\.0\.0\.1
+^https?://0\.0\.0\.0
+^https?://192\.168\.
+^https?://10\.
+^https?://172\.(1[6-9]|2[0-9]|3[0-1])\.
+
+# Sites that block bots (often false positives)
+^https?://(www\.)?linkedin\.com
+^https?://(www\.)?twitter\.com
+^https?://(www\.)?x\.com
+
+# Giscus / GitHub Discussions (redirects to login when not authenticated)
+^https?://giscus\.app

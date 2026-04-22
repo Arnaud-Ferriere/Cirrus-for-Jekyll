@@ -1,0 +1,74 @@
+name: Broken link check
+
+# When to run this workflow
+on:
+  # On every push to main
+  push:
+    branches: [main]
+  # Every Monday at 9am UTC (catches external links that rot over time)
+  schedule:
+    - cron: '0 9 * * 1'
+  # Manual trigger from the GitHub "Actions" tab
+  workflow_dispatch:
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+
+    # Permissions required for the action to create an issue
+    permissions:
+      issues: write
+      contents: read
+
+    steps:
+      # 1. Checkout the repository
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      # 2. Install Ruby + Bundler (required for Jekyll)
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true  # cache gems to speed up future runs
+
+      # 3. Build the Jekyll site → generates the _site/ folder
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      # 4. Run lychee against the built site
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Arguments passed to lychee:
+          # - '_site/**/*.html' : scan every generated HTML file
+          # - --root-dir : absolute path used to resolve root-relative links (/articles/...)
+          # - --verbose : detailed logging
+          # - --no-progress : no progress bar (useless in CI)
+          # - --exclude-path '_site/assets' : skip the heavy assets folder
+          args: >-
+            --root-dir ${{ github.workspace }}/_site
+            --verbose
+            --no-progress
+            --exclude-path '_site/assets'
+            '_site/**/*.html'
+          # Output file (used to create the issue)
+          output: ./lychee-report.md
+          # Do NOT fail the workflow when links are broken
+          # (we create a GitHub issue instead — no email spam)
+          fail: false
+
+      # 5. Create or update an issue when broken links are found
+      - name: Create Issue From File
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v6
+        with:
+          title: '🔗 Broken links detected'
+          content-filepath: ./lychee-report.md
+          labels: |
+            bug
+            broken-links
+            automated

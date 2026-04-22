@@ -26,6 +26,7 @@ Built with Bootstrap 5, Font Awesome 6, Mermaid 11 and Poppins — **all self-ho
 - [Mermaid diagrams](#mermaid-diagrams)
 - [Share buttons](#share-buttons)
 - [Adding comments (optional)](#adding-comments-optional)
+- [Broken link checker](#broken-link-checker)
 - [GitHub Pages — authorized use](#github-pages--authorized-use)
 - [Local development](#local-development)
 - [License](#license)
@@ -53,6 +54,7 @@ Built with Bootstrap 5, Font Awesome 6, Mermaid 11 and Poppins — **all self-ho
 - **Collapsible sections** — H2 headings can be folded/expanded via Bootstrap collapse
 - **Performance** — Bootstrap, Font Awesome, Mermaid and Poppins all self-hosted (zero external CDN), print CSS split into a separate `media="print"` stylesheet (never blocks first paint), preload hints for LCP banner, Sass compression, lazy loading, `fetchpriority="high"` on above-the-fold images, deferred non-critical JS, search index fetched only on focus
 - **Privacy** — no third-party CDN for fonts, CSS or JS (GDPR-friendly), email obfuscation via data attributes, anti-crawler helper
+- **Broken link checker** — GitHub Actions workflow runs weekly (and on every push) to detect dead links, opens a GitHub issue with the full report when something breaks
 - **Keyboard shortcut** — press `/` anywhere to focus the search input
 - **Difficulty badges** — optional article difficulty level shown as a weather-themed badge
 - **Modular SCSS** — clean architecture under `_sass/` with a shared `badge-style` mixin
@@ -430,6 +432,22 @@ Paste the script just before the closing `</article>` tag, after the tags sectio
 ```
 
 That's it — comments will appear automatically on each article page.
+
+---
+
+## Broken link checker
+
+A GitHub Actions workflow (`.github/workflows/broken-links.yml`) automatically scans the built site for broken links using [lychee](https://github.com/lycheeverse/lychee-action). It runs:
+
+- On every push to `main`
+- Every Monday at 9:00 UTC (catches external links that rot over time)
+- On-demand from the **Actions** tab
+
+When broken links are found, the workflow **opens a GitHub issue** with the full report — it never fails the build, so you do not get email spam on every push.
+
+To skip certain URL patterns (e.g. sites that block bots, private IPs), add regexes to `.lycheeignore` at the repo root. The default file already excludes LinkedIn, X/Twitter, private IP ranges, and `giscus.app`.
+
+**No setup required** — the workflow uses the default `GITHUB_TOKEN` and becomes active the moment you enable GitHub Actions in your repo settings.
 
 ---
 
