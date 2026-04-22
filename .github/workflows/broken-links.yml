@@ -15,6 +15,11 @@ jobs:
   link-check:
     runs-on: ubuntu-latest
 
+    # Skip on the template repo itself — only runs on repos instantiated from
+    # the template (where is_template == false). No action required by users:
+    # the moment someone clicks "Use this template", the check activates.
+    if: github.event.repository.is_template != true
+
     # Permissions required for the action to create an issue
     permissions:
       issues: write
