@@ -35,6 +35,7 @@ exclude:
   - .claude
   - .vscode
   - node_modules
+  - vendor
   - Templates
 
 collections:
