@@ -506,7 +506,21 @@ bundle exec jekyll serve --livereload    # auto-refresh the browser on change
 
 ## License
 
-[MIT](LICENSE) — free to use, modify, and redistribute, including for commercial purposes, as long as the copyright notice in the LICENSE file is preserved.
+[MIT](LICENSE) - free to use, modify, and redistribute, including for commercial purposes, as long as the copyright notice in the LICENSE file is preserved.
+> **Note:** GitHub Pages free hosting [does not allow commercial use](#github-pages--authorized-use) of the *deployed site*, regardless of the template's license. The MIT license applies to the template code, not to where you deploy it.
+
+### Third-party assets
+
+The template bundles several open-source assets that retain their own licenses (all permissive, all commercial-friendly):
+
+| Asset | Location | License |
+|---|---|---|
+| Bootstrap | `assets/vendor/bootstrap/` | MIT |
+| Font Awesome Free | `assets/vendor/fontawesome/` | Icons CC BY 4.0, Fonts OFL, Code MIT |
+| Mermaid | `assets/vendor/mermaid/` | MIT |
+| Poppins | `assets/fonts/` | SIL Open Font License 1.1 |
+
+See the `LICENSE` file for the full list and links.
 
 ### Attribution (optional but appreciated)
 
@@ -514,7 +528,7 @@ The template includes a small attribution line in the footer:
 
 > Based on [Cirrus for Jekyll](https://github.com/Arnaud-Ferriere/Cirrus-for-Jekyll) by [Arnaud FERRIERE](https://surlesnuages.fr)
 
-You're free to remove it, the MIT license doesn't require it. But if you keep it, it's a small gesture that helps the project gain visibility, and it costs nothing.
+You're free to remove it, the MIT license doesn't require it. But if you keep it, it's a small gesture that helps the project gain visibility, and it costs nothing. Thank you !
 
 ---
 
