@@ -276,7 +276,7 @@ permalink: /about/
                     {% if lang.flag_emoji %}
                     <span class="flag-emoji" aria-hidden="true">{{ lang.flag_emoji }}</span>
                     {% elsif lang.flag %}
-                    <img width="48" height="48" src="{{ lang.flag | relative_url }}" alt="{{ lang.name }}" />
+                    <img class="lang-flag" src="{{ lang.flag | relative_url }}" alt="{{ lang.name }}" />
                     {% endif %}
                     <strong>{{ lang.name }} :</strong> {{ lang.level }}{% if lang.url %} - <a
                         href="{{ lang.url }}"
