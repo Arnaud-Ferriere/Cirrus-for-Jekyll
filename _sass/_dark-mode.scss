@@ -211,6 +211,20 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   }
 
+  /* Footer — keep it dark in dark mode (don't follow --color-primary which
+     gets flipped to a light blue for heading contrast). Without this override,
+     the footer background and link color collide → invisible attribution. */
+  .cloud-footer {
+    background-color: #060e1a;
+    color: #d4d8dd;
+  }
+  .cloud-footer a {
+    color: #7ab3f0;
+  }
+  .cloud-footer a:hover {
+    color: #fff;
+  }
+
   /* Stacked card hover shadow (about page) */
   .stacked-card:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
