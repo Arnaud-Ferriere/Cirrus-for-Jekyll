@@ -1,0 +1,69 @@
+name: Deploy demo to GitHub Pages
+
+# Builds the live demo at https://<owner>.github.io/<repo>/ via the
+# GitHub Pages Actions deploy method (no gh-pages branch needed).
+#
+# The job is gated on `is_template == true`, so it only runs on the
+# Cirrus template repository itself. Repos created from the template
+# (where is_template == false) keep using the simpler "Deploy from a
+# branch" Pages setting and don't fire this workflow at all.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deploy in flight at a time; don't cancel the running one
+# (we want the latest commit to fully publish before starting a newer one)
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # Demo deploy only fires on the template repo itself
+    if: github.event.repository.is_template == true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      # Computes the correct base_path from the Pages environment
+      # (e.g. "/Cirrus-for-Jekyll" for arnaud-ferriere.github.io/Cirrus-for-Jekyll/)
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event.repository.is_template == true
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
