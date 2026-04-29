@@ -342,6 +342,8 @@ The stylesheet is split into modular partials under `_sass/`:
 
 The entry point is `assets/css/main.scss`. Jekyll compiles it automatically — no build tools needed. Sass compression is enabled in `_config.yml`.
 
+> **Asset paths in SCSS.** When SCSS partials reference files like fonts or SVGs, they use **relative paths** (e.g. `url('../fonts/poppins-500.woff2')`) rather than absolute (`/assets/...`). This way the asset resolves correctly whether your site is hosted at a root domain (`mysite.com/`) or under a subpath like `<user>.github.io/<repo>/`. If you add new asset references in SCSS, keep using the relative form to stay subpath-friendly.
+
 ---
 
 ## Obsidian callouts

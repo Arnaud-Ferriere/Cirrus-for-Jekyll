@@ -1,4 +1,8 @@
-/* Footer */
+/* Footer
+   The wave SVG path is relative to /assets/css/main.css (the compiled
+   stylesheet), so it resolves correctly whether the site is hosted at
+   the root domain or at a subpath. Keep this relative form (../filename)
+   when referencing other assets from SCSS. */
 .cloud-footer {
   background-color: var(--color-primary);
   text-align: center;
