@@ -273,11 +273,13 @@ permalink: /about/
             <div class="stacked-card">
                 <div class="stacked-card-body">
                     {% for lang in site.data.languages %}
+                    <span class="lang-flag-slot">
                     {% if lang.flag_emoji %}
-                    <span class="flag-emoji" aria-hidden="true">{{ lang.flag_emoji }}</span>
+                      <span class="flag-emoji" aria-hidden="true">{{ lang.flag_emoji }}</span>
                     {% elsif lang.flag %}
-                    <img class="lang-flag" src="{{ lang.flag | relative_url }}" alt="{{ lang.name }}" />
+                      <img class="lang-flag" src="{{ lang.flag | relative_url }}" alt="{{ lang.name }}" />
                     {% endif %}
+                    </span>
                     <strong>{{ lang.name }} :</strong> {{ lang.level }}{% if lang.url %} - <a
                         href="{{ lang.url }}"
                         target="_blank" rel="noopener noreferrer" class="cert-link">{{ lang.link_text }} <i
