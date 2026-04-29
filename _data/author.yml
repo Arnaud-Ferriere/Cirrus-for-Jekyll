@@ -6,7 +6,9 @@ name: Jane Doe
 name_display: Jane DOE
 role: Your Job Title
 tagline: "Skill A | Skill B | Skill C"
-photo: assets/photo.webp
+# Profile picture — replace with your own (recommended: square ~300x300).
+# Out of the box: random portrait from loremflickr (locked seed for stability).
+photo: https://loremflickr.com/300/300/portrait,smile?lock=101
 photo_alt: "Profile picture of the site author"
 linkedin: https://www.linkedin.com/in/your-profile/
 github: https://github.com/your-username
@@ -17,9 +19,15 @@ bio: >-
   created this site. You can use <br /> for line breaks.
 sign_off: "See you soon! - Jane DOE"
 interests:
-  - label: Your first interest
-    image: assets/interest1.webp
+  - label: Photography
+    image: https://loremflickr.com/600/400/camera,photography?lock=111
     separator: ","
-  - label: your second interest
-    image: assets/interest2.webp
+  - label: hiking
+    image: https://loremflickr.com/600/400/hiking,mountain?lock=112
+    separator: ","
+  - label: cooking
+    image: https://loremflickr.com/600/400/cooking,kitchen?lock=113
+    separator: ","
+  - label: open source
+    image: https://loremflickr.com/600/400/code,laptop?lock=114
     separator: "."

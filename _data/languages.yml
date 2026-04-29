@@ -1,13 +1,23 @@
 # Language skills.
-# flag: path to a flag image in assets/
-# url and link_text are optional (e.g. for a language certification)
+# Two ways to represent a flag:
+#   - flag_emoji: a country-flag emoji like "🇫🇷" (recommended — zero asset)
+#   - flag: a path to an image in assets/ (used as fallback if flag_emoji is absent)
+# url and link_text are optional (e.g. for a language certification).
 
 - name: "English"
-  flag: "assets/flag-en.png"
+  flag_emoji: "🇬🇧"
   level: "Native"
 
 - name: "French"
-  flag: "assets/flag-fr.png"
+  flag_emoji: "🇫🇷"
   level: "Fluent (C1)"
   url: "https://optional-certification-url.com"
   link_text: "View certification"
+
+- name: "Spanish"
+  flag_emoji: "🇪🇸"
+  level: "Conversational (B1)"
+
+- name: "Japanese"
+  flag_emoji: "🇯🇵"
+  level: "Beginner (A2)"
