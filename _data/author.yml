@@ -7,8 +7,10 @@ name_display: Jane DOE
 role: Your Job Title
 tagline: "Skill A | Skill B | Skill C"
 # Profile picture — replace with your own (recommended: square ~300x300).
-# Out of the box: random portrait from loremflickr (locked seed for stability).
-photo: https://loremflickr.com/300/300/portrait,smile?lock=101
+# Out of the box: an illustrated avatar from DiceBear (deterministic from the seed).
+# Try other styles by changing the path: avataaars, notionists, personas, micah, etc.
+# https://www.dicebear.com/styles/
+photo: https://api.dicebear.com/9.x/lorelei/svg?seed=jane-doe&size=300
 photo_alt: "Profile picture of the site author"
 linkedin: https://www.linkedin.com/in/your-profile/
 github: https://github.com/your-username
