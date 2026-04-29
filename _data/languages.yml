@@ -1,23 +1,28 @@
 # Language skills.
 # Two ways to represent a flag:
-#   - flag_emoji: a country-flag emoji like "🇫🇷" (recommended — zero asset)
-#   - flag: a path to an image in assets/ (used as fallback if flag_emoji is absent)
+#   - flag: a path to a flag image (default — works on every platform).
+#     The example flags ship in assets/about/flags/ as SVG (sourced from
+#     Wikimedia Commons, public domain). Replace with your own assets when
+#     you need other languages.
+#   - flag_emoji: a country-flag emoji like "🇫🇷" (used if `flag` is absent).
+#     ⚠️ Windows browsers do not render flag emojis — they show the country
+#     letters instead ("FR"). Stick to `flag` if your audience uses Windows.
 # url and link_text are optional (e.g. for a language certification).
 
 - name: "English"
-  flag_emoji: "🇬🇧"
+  flag: "assets/about/flags/gb.svg"
   level: "Native"
 
 - name: "French"
-  flag_emoji: "🇫🇷"
+  flag: "assets/about/flags/fr.svg"
   level: "Fluent (C1)"
   url: "https://optional-certification-url.com"
   link_text: "View certification"
 
 - name: "Spanish"
-  flag_emoji: "🇪🇸"
+  flag: "assets/about/flags/es.svg"
   level: "Conversational (B1)"
 
 - name: "Japanese"
-  flag_emoji: "🇯🇵"
+  flag: "assets/about/flags/jp.svg"
   level: "Beginner (A2)"

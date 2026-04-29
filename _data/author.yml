@@ -7,10 +7,9 @@ name_display: Jane DOE
 role: Your Job Title
 tagline: "Skill A | Skill B | Skill C"
 # Profile picture — replace with your own (recommended: square ~300x300).
-# Out of the box: an illustrated avatar from DiceBear (deterministic from the seed).
-# Try other styles by changing the path: avataaars, notionists, personas, micah, etc.
-# https://www.dicebear.com/styles/
-photo: https://api.dicebear.com/9.x/lorelei/svg?seed=jane-doe&size=300
+# Out of the box: a self-hosted DiceBear avatar (lorelei style, ~5KB SVG).
+# Convention: drop personal images in assets/about/ to keep the asset tree tidy.
+photo: assets/about/photo.svg
 photo_alt: "Profile picture of the site author"
 linkedin: https://www.linkedin.com/in/your-profile/
 github: https://github.com/your-username
@@ -20,6 +19,9 @@ bio: >-
   Write your bio here. Tell us who you are, what you do, and why you
   created this site. You can use <br /> for line breaks.
 sign_off: "See you soon! - Jane DOE"
+# Interests — each one shows a hover preview image and opens fullscreen on click.
+# The example uses random thematic photos from loremflickr (locked seed for
+# stability). Replace with your own files in assets/about/ when ready.
 interests:
   - label: Photography
     image: https://loremflickr.com/600/400/camera,photography?lock=111

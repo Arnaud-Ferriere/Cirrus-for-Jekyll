@@ -37,3 +37,6 @@ Third-party assets bundled in this template retain their original licenses:
 
 - Poppins font (assets/fonts/) — SIL Open Font License 1.1
   https://fonts.google.com/specimen/Poppins/license
+
+- Country flags (assets/about/flags/) — Public Domain
+  Sourced from https://flagcdn.com (originally from Wikimedia Commons)
