@@ -98,22 +98,39 @@
   margin-right: 10px;
 }
 
-/* Language flags — all rendered inside a fixed-size slot so the text after
-   the flag always starts at the same x-position, regardless of whether the
-   flag is an emoji, a 2:1 SVG (UK) or a 3:2 SVG (FR/ES/JP). The asset
-   inside is centered and scales to fit while keeping its aspect ratio. */
+/* Languages list on the about page.
+   Each item is a flex row: fixed-size flag slot on the left, language
+   description on the right. Items are spaced vertically for breathing room. */
+.language-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.language-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0;
+}
+
+.language-text {
+  flex: 1;
+}
+
+/* The flag slot keeps a fixed footprint regardless of the flag's natural
+   aspect ratio, so the language text after it always starts at the same x. */
 .lang-flag-slot {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 36px;
-  margin-right: 0.6rem;
-  vertical-align: middle;
+  width: 36px;
+  height: 24px;
+  flex-shrink: 0;
 }
 
 .flag-emoji {
-  font-size: 2rem;
+  font-size: 1.4rem;
   line-height: 1;
 }
 

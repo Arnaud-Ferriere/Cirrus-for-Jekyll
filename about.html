@@ -272,19 +272,23 @@ permalink: /about/
         <div id="collapse-languages" class="section-content stacked-cards collapse show">
             <div class="stacked-card">
                 <div class="stacked-card-body">
+                    <ul class="language-list">
                     {% for lang in site.data.languages %}
-                    <span class="lang-flag-slot">
-                    {% if lang.flag_emoji %}
-                      <span class="flag-emoji" aria-hidden="true">{{ lang.flag_emoji }}</span>
-                    {% elsif lang.flag %}
-                      <img class="lang-flag" src="{{ lang.flag | relative_url }}" alt="{{ lang.name }}" />
-                    {% endif %}
-                    </span>
-                    <strong>{{ lang.name }} :</strong> {{ lang.level }}{% if lang.url %} - <a
-                        href="{{ lang.url }}"
-                        target="_blank" rel="noopener noreferrer" class="cert-link">{{ lang.link_text }} <i
-                            class="fa-solid fa-square-up-right" aria-hidden="true"></i></a>{% endif %}<br />
+                        <li class="language-item">
+                            <span class="lang-flag-slot">
+                            {% if lang.flag_emoji %}
+                                <span class="flag-emoji" aria-hidden="true">{{ lang.flag_emoji }}</span>
+                            {% elsif lang.flag %}
+                                <img class="lang-flag" src="{{ lang.flag | relative_url }}" alt="{{ lang.name }}" />
+                            {% endif %}
+                            </span>
+                            <span class="language-text"><strong>{{ lang.name }} :</strong> {{ lang.level }}{% if lang.url %} - <a
+                                href="{{ lang.url }}"
+                                target="_blank" rel="noopener noreferrer" class="cert-link">{{ lang.link_text }} <i
+                                    class="fa-solid fa-square-up-right" aria-hidden="true"></i></a>{% endif %}</span>
+                        </li>
                     {% endfor %}
+                    </ul>
                 </div>
             </div>
         </div>
