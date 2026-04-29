@@ -18,12 +18,6 @@ permissions:
   pages: write
   id-token: write
 
-# Opt JS actions into Node 24 even when their action.yml still declares Node 20.
-# Silences the deprecation warning until the actions ecosystem catches up.
-# See: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 # Only one deploy in flight at a time; don't cancel the running one
 # (we want the latest commit to fully publish before starting a newer one)
 concurrency:
@@ -44,7 +38,7 @@ jobs:
       # (e.g. "/Cirrus-for-Jekyll" for arnaud-ferriere.github.io/Cirrus-for-Jekyll/)
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -58,7 +52,7 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
 
   deploy:
     needs: build
@@ -72,4 +66,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
