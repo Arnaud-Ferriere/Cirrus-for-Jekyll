@@ -502,15 +502,26 @@ bundle exec jekyll serve --livereload    # auto-refresh the browser on change
 
 ## License
 
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — free to use, modify, and redistribute for any purpose, as long as you credit the original author.
+[MIT](LICENSE) — free to use, modify and redistribute for any purpose, including commercial. The only requirement is keeping the copyright notice in any substantial copy of the source.
 
-> **Note:** While CC BY 4.0 permits commercial use on self-hosted deployments, **GitHub Pages does not allow commercial use** of sites hosted on its free tier. See the [GitHub Pages authorized use](#github-pages--authorized-use) section for details.
+> **Note:** GitHub Pages free hosting [does not allow commercial use](#github-pages--authorized-use) of the *deployed site*, regardless of the template's license. The MIT license applies to the template code, not to where you deploy it.
 
-The footer attribution already included in the template satisfies the licence requirement:
+The footer attribution included in the template is **not** a license requirement (MIT only requires keeping the LICENSE file). It is a friendly nod to the project — feel free to keep, customize, or remove it. The default text is centralized in `_includes/footer-attribution.html` so you can easily edit one file:
 
-> Based on [Cirrus for Jekyll](https://github.com/Arnaud-Ferriere/Cirrus-for-Jekyll) by Arnaud FERRIERE — [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+> Based on [Cirrus for Jekyll](https://github.com/Arnaud-Ferriere/Cirrus-for-Jekyll) by [Arnaud FERRIERE](https://surlesnuages.fr)
 
-Please keep this footer line as-is.
+### Third-party assets
+
+The template bundles several open-source assets that retain their own licenses (all permissive, all commercial-friendly):
+
+| Asset | Location | License |
+|---|---|---|
+| Bootstrap | `assets/vendor/bootstrap/` | MIT |
+| Font Awesome Free | `assets/vendor/fontawesome/` | Icons CC BY 4.0, Fonts OFL, Code MIT |
+| Mermaid | `assets/vendor/mermaid/` | MIT |
+| Poppins | `assets/fonts/` | SIL Open Font License 1.1 |
+
+See the `LICENSE` file for the full list and links.
 
 ---
 
