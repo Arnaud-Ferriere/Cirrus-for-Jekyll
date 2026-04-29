@@ -6,7 +6,7 @@ All personal content is configured through YAML files — no template editing ne
 
 Built with Bootstrap 5, Font Awesome 6, Mermaid 11 and Poppins — **all self-hosted** (zero external CDN, full GDPR compatibility) and full GitHub Pages compatibility.
 
-**Live demo:** <https://arnaud-ferriere.github.io/Cirrus-for-Jekyll/>
+**Live demo:** <https://arnaud-ferriere.github.io/Cirrus-for-Jekyll/>  
 **My blog (in French) based on Cirrus:** [surlesnuages.fr](https://surlesnuages.fr)
 
 ## Table of contents
