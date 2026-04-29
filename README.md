@@ -18,10 +18,13 @@ Built with Bootstrap 5, Font Awesome 6, Mermaid 11 and Poppins — **all self-ho
   - [Images](#images-in-the-body)
   - [Smart links](#smart-links)
   - [Difficulty badges](#difficulty-badges)
+  - [Recommended workflow with Obsidian](#recommended-workflow-with-obsidian--obsidian-git-plugin)
 - [Article series](#article-series)
 - [Translate the UI](#translate-the-ui)
 - [Dark mode](#dark-mode)
 - [Customize the look](#customize-the-look)
+  - [Footer wave](#footer-wave)
+  - [SCSS architecture](#scss-architecture)
 - [Obsidian callouts](#obsidian-callouts)
 - [Mermaid diagrams](#mermaid-diagrams)
 - [Share buttons](#share-buttons)
@@ -30,6 +33,7 @@ Built with Bootstrap 5, Font Awesome 6, Mermaid 11 and Poppins — **all self-ho
 - [GitHub Pages — authorized use](#github-pages--authorized-use)
 - [Local development](#local-development)
 - [License](#license)
+- [Show some love](#show-some-love)
 
 ---
 
@@ -502,29 +506,28 @@ bundle exec jekyll serve --livereload    # auto-refresh the browser on change
 
 ## License
 
-[MIT](LICENSE) — free to use, modify and redistribute for any purpose, including commercial. The only requirement is keeping the copyright notice in any substantial copy of the source.
+[MIT](LICENSE) — free to use, modify, and redistribute, including for commercial purposes, as long as the copyright notice in the LICENSE file is preserved.
 
-> **Note:** GitHub Pages free hosting [does not allow commercial use](#github-pages--authorized-use) of the *deployed site*, regardless of the template's license. The MIT license applies to the template code, not to where you deploy it.
+### Attribution (optional but appreciated)
 
-The footer attribution included in the template is **not** a license requirement (MIT only requires keeping the LICENSE file). It is a friendly nod to the project — feel free to keep, customize, or remove it. The default text is centralized in `_includes/footer-attribution.html` so you can easily edit one file:
+The template includes a small attribution line in the footer:
 
 > Based on [Cirrus for Jekyll](https://github.com/Arnaud-Ferriere/Cirrus-for-Jekyll) by [Arnaud FERRIERE](https://surlesnuages.fr)
 
-### Third-party assets
-
-The template bundles several open-source assets that retain their own licenses (all permissive, all commercial-friendly):
-
-| Asset | Location | License |
-|---|---|---|
-| Bootstrap | `assets/vendor/bootstrap/` | MIT |
-| Font Awesome Free | `assets/vendor/fontawesome/` | Icons CC BY 4.0, Fonts OFL, Code MIT |
-| Mermaid | `assets/vendor/mermaid/` | MIT |
-| Poppins | `assets/fonts/` | SIL Open Font License 1.1 |
-
-See the `LICENSE` file for the full list and links.
+You're free to remove it, the MIT license doesn't require it. But if you keep it, it's a small gesture that helps the project gain visibility, and it costs nothing.
 
 ---
+
+## Show some love
+
+If this template helps you, here are a few ways to show appreciation:
+
+- Star the repo (it will help with discoverability)
+- Keep the footer attribution if you can
+- **Did you build something with Cirrus?** I'd love to see your site! Drop a link in [Discussions](https://github.com/Arnaud-Ferriere/Cirrus-for-Jekyll/discussions) or hit me up!
 
 If this template saved you some time, a coffee is always appreciated!
 
 [![Ko-fi](https://img.shields.io/badge/Support%20on-Ko--fi-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/surlesnuages)
+
+None of this is required. Enjoy the template! ⛅
